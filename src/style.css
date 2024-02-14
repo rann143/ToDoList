@@ -26,9 +26,16 @@ body {
 #proj-list-div {
     justify-self: center;
     justify-content: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .project-button {
     margin-top: 5px;
     margin-bottom: 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(255, 207, 188);
+    box-shadow: 2px 2px 5px rgba(163, 163, 163, 0.363);
 }
