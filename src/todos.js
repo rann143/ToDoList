@@ -19,12 +19,16 @@ function ToDoManager() {
 
     const myToDos = [];
 
-    const createNewToDoItem = () => {
+    const createNewToDoItem = (title, descr, dueDate, priority, notes, completed) => {
         const newToDo = new ToDoItem(title, descr, dueDate, priority, notes, completed);
         myToDos.push(newToDo);
-        console.log(myToDos);
+        // console.log(myToDos);
 
     }
+
+    createNewToDoItem("Big Dawg", "Biggest", "tmo", "high", "notes", true);
+    // createNewToDoItem("Little Dawg", "Littlest", "next week", "low", "notes", false);
+    // createNewToDoItem("Mid Dawg", "Middest", "wheneva", "med", "notes", false);
 
     const getToDos = () => myToDos;
 
