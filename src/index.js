@@ -2,7 +2,7 @@ import { ProjectManager } from './project.js';
 import { ToDoManager } from './todos.js';
 import { createHomePage,
         addProjectToList,
-        createThisProjectSection, 
+        displayThisProjectSection, 
         createAddNewProjectButton,
         } from './screendisplay.js';
 
@@ -17,6 +17,7 @@ console.log(ProjectManager().getMyProjects());
 
 createAddNewProjectButton();
 addProjectToList();
+displayThisProjectSection();
 
 
 

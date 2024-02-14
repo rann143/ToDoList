@@ -1,5 +1,6 @@
 import { ToDoManager } from "./todos";
 import { ProjectManager } from "./project"; 
+import { sub } from "date-fns";
 
 
 const createHomePage = () => {
@@ -18,7 +19,7 @@ const createHomePage = () => {
     currentProjectTitle.setAttribute('id', 'current-proj-title');
         
     projectsListTitle.textContent = "My Projects";
-    currentProjectTitle.textContent = "This Project"; //placeholder for now
+    currentProjectTitle.textContent = "Home"; //placeholder for now
 
     projectListDiv.appendChild(projectsListTitle);
     currentProjectDiv.appendChild(currentProjectTitle);
@@ -65,15 +66,42 @@ const createAddNewProjectButton = () => {
         dialog.showModal();
     })
 
+    const submitNewProjBtn = document.querySelector("#submit-new-proj-btn");
+    submitNewProjBtn.addEventListener('click', event => {
+        event.preventDefault();
+        //Add new project
+        //ProjectManager().addProject();
+        dialog.close();
+
+    })
+
     projectListDiv.appendChild(newProjectBtn);
 
     return projectListDiv;
 
 }
 
-const createThisProjectSection = () => {
+const displayThisProjectSection = () => {
 
     const currentProjectDiv = document.querySelector('#current-proj-div');
+
+    const toDo = ToDoManager()
+
+    const todoArray = toDo.getToDos();
+
+    todoArray.forEach((todo) => {
+        const toDoBtn = document.createElement('button');
+        toDoBtn.classList.add('todo-button');
+        toDoBtn.textContent = `${todo.title}`
+
+        toDoBtn.addEventListener('click', event => {
+            console.log(todo);
+        })
+
+        currentProjectDiv.appendChild(toDoBtn);
+    })
+
+    return currentProjectDiv;
 
 }
 
@@ -84,5 +112,5 @@ export {
     createHomePage,
     addProjectToList,
     createAddNewProjectButton,
-    createThisProjectSection,
+    displayThisProjectSection,
  };
