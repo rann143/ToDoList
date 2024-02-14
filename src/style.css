@@ -40,3 +40,12 @@ body {
     box-shadow: 2px 2px 5px rgba(163, 163, 163, 0.363);
     text-align: start;
 }
+
+#new-proj-button {
+    background-color: rgb(173, 173, 173);
+    box-shadow: 2px 2px 5px rgba(163, 163, 163, 0.363);
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 20px;
+}

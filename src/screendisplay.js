@@ -51,11 +51,29 @@ const addProjectToList = () => {
 
 }
 
+const createAddNewProjectButton = () => {
+
+    const projectListDiv = document.querySelector('#proj-list-div');
+
+    const dialog = document.querySelector("dialog");
+
+    const newProjectBtn = document.createElement('button');
+    newProjectBtn.setAttribute('id', 'new-proj-button');
+    newProjectBtn.textContent = "+ New Project";
+
+    newProjectBtn.addEventListener('click', event => {
+        dialog.showModal();
+    })
+
+    projectListDiv.appendChild(newProjectBtn);
+
+    return projectListDiv;
+
+}
+
 const createThisProjectSection = () => {
 
     const currentProjectDiv = document.querySelector('#current-proj-div');
-
-
 
 }
 
@@ -65,5 +83,6 @@ const createThisProjectSection = () => {
 export { 
     createHomePage,
     addProjectToList,
+    createAddNewProjectButton,
     createThisProjectSection,
  };
