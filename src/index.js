@@ -1,13 +1,14 @@
 import { Project, ProjectManager } from './project.js';
 import { ToDoItem } from './todos.js';
 import { createHomePage,
-        //addProjectToList,
+        //addNewProject,
         // displayProjectTodos, 
         //createAddNewProjectButton,
         // createAddNewToDoButton,
         } from './screendisplay.js';
 
 console.log("Big Dawgs STAY barkin");
+//WORKING ON ADDING TODOITEM FUNCTIONALITY
 
 const container = document.querySelector('#container');
 container.appendChild(createHomePage());
@@ -39,7 +40,7 @@ const createAddNewProjectButton = () => {
         //Add new project
         const newProject = new Project(titleInput.value);
         projectArray.push(newProject);
-        addProjectToList();
+        addNewProject();
         titleInput.value = "";
         
         dialog.close();
@@ -63,6 +64,41 @@ function clearProjDivChildren() {
 
 }
 
+function addNewToDo(title, descr, dueDate, priority, notes, completed) {
+
+    //WORK ON THIS
+
+    const titleInput = document.querySelector('#todo-title-input');
+    const descrInput = document.querySelector('#todo-descr-input');
+    const dateInput = document.querySelector('#todo-date-input');
+    const priorityInput = document.querySelector('#todo-priority-input');
+    const notesInput = document.querySelector('#todo-notes-input');
+    const completedInput = document.querySelector('#todo-completed-input');
+
+    title = titleInput.value;
+    descr = descrInput.value;
+    dueDate = dateInput.value;
+    priority = priorityInput.value;
+    notes = notesInput.value;
+
+    titleInput.value = "";
+    descrInput.value = "";
+    dateInput.value = "";
+    priorityInput.value = "";
+    notesInput.value = "";
+
+    completed = false;
+
+    const newToDo = new ToDoItem(title, descr, dueDate, priority, notes, completed);
+
+    return newToDo;
+
+    //now add this ToDoItem to the respective project
+
+
+
+}
+
 function createAddNewToDoButton() {
 
     const currentProjectDiv = document.querySelector('#current-proj-div');
@@ -81,8 +117,8 @@ function createAddNewToDoButton() {
     const submitNewToDoBtn = document.querySelector("#submit-new-todo-btn");
     submitNewToDoBtn.addEventListener('click', event => {
         //event.preventDefault();
-        //Add new project
-        //ProjectManager().addProject();
+        //Get current Project & Add new todo
+        addNewToDo();
         toDoDialog.close();
 
     })
@@ -95,6 +131,8 @@ function createAddNewToDoButton() {
 }
 
 createAddNewToDoButton();
+
+
 
 const displayProjectTodos = () => {
 
@@ -118,7 +156,7 @@ const displayProjectTodos = () => {
 
 }
 
-const addProjectToList = () => {
+const addNewProject = () => {
 
     const projectListDiv = document.querySelector('#proj-list-div');
     const newProject = projectArray[projectArray.length - 1];
@@ -155,6 +193,7 @@ const addProjectToList = () => {
     return projectListDiv;
 
 }
+
 
 //This is for helping see the DOM, this projects don't have IDs
 //Remove when done
@@ -194,10 +233,6 @@ const defaultProject = (function loadDefaultProject() {
             createAddNewToDoButton();
     
             //display todo list for that project
-            //displayProjectTodos();
-            // Need to fix this below
-            
-
             homeProj.toDos.forEach((todo) => {
             const toDoBtn = document.createElement('button');
             toDoBtn.classList.add('todo-button');
@@ -228,9 +263,6 @@ const defaultProject = (function loadDefaultProject() {
 
 
 
-// Functionality where if I click a project button in the list of projects,
-// the display of the current project div changes to that respective project
-// and shows it's to-dos
 
 
 
