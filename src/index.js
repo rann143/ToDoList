@@ -50,8 +50,11 @@ projBtns.forEach((btn) => {
         projTitle.textContent = `${btn.textContent}`;
         currentProjectDiv.appendChild(projTitle);
 
+        // create add new todo button
+        createAddNewToDoButton();
+
         //display todo list for that project
-        
+
 
     
     });
