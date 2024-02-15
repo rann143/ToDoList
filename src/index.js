@@ -78,14 +78,14 @@ function createAddNewToDoButton() {
     })
 
     //This is breaking the button - won't show up.
-    // const submitNewToDoBtn = document.querySelector("#submit-new-todo-btn");
-    // submitNewToDoBtn.addEventListener('click', event => {
-    //     //event.preventDefault();
-    //     //Add new project
-    //     //ProjectManager().addProject();
-    //     toDoDialog.close();
+    const submitNewToDoBtn = document.querySelector("#submit-new-todo-btn");
+    submitNewToDoBtn.addEventListener('click', event => {
+        //event.preventDefault();
+        //Add new project
+        //ProjectManager().addProject();
+        toDoDialog.close();
 
-    // })
+    })
 
     currentProjectDiv.appendChild(newToDoBtn);
 
@@ -119,7 +119,7 @@ const addProjectToList = () => {
             currentProjectDiv.appendChild(projTitle);
     
             // create add new todo button
-            
+            createAddNewToDoButton();
 
             //display todo list for that project
     
@@ -169,6 +169,7 @@ const loadDefaultProject = () => {
             currentProjectDiv.appendChild(projTitle);
     
             // create add new todo button
+            createAddNewToDoButton();
     
             //display todo list for that project
     
@@ -179,6 +180,7 @@ const loadDefaultProject = () => {
         projectListDiv.appendChild(projBtn);
 
     })
+
 
 
     return projectListDiv;
