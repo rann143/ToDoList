@@ -32,61 +32,61 @@ const createHomePage = () => {
 
 }
 
-const addProjectToList = () => {
+// const addProjectToList = () => {
 
-    const projectListDiv = document.querySelector('#proj-list-div');
+//     const projectListDiv = document.querySelector('#proj-list-div');
 
-    const project = ProjectManager();
+//     const project = ProjectManager();
 
 
-    projArray.forEach((proj) => {
+//     projArray.forEach((proj) => {
 
-        const projBtn = document.createElement('button');
-        projBtn.classList.add('project-button');
-        projBtn.textContent = `${proj.title}`
-        projectListDiv.appendChild(projBtn);
+//         const projBtn = document.createElement('button');
+//         projBtn.classList.add('project-button');
+//         projBtn.textContent = `${proj.title}`
+//         projectListDiv.appendChild(projBtn);
 
-    })
+//     })
 
-    return projectListDiv;
+//     return projectListDiv;
 
-}
+// }
 
-const createAddNewProjectButton = () => {
+// const createAddNewProjectButton = () => {
 
-    const projectListDiv = document.querySelector('#proj-list-div');
+//     const projectListDiv = document.querySelector('#proj-list-div');
 
-    const dialog = document.querySelector("dialog");
+//     const dialog = document.querySelector("dialog");
 
-    const newProjectBtn = document.createElement('button');
-    newProjectBtn.setAttribute('id', 'new-proj-button');
-    newProjectBtn.textContent = "+ New Project";
+//     const newProjectBtn = document.createElement('button');
+//     newProjectBtn.setAttribute('id', 'new-proj-button');
+//     newProjectBtn.textContent = "+ New Project";
 
-    const titleInput = document.querySelector('#title-input');
+//     const titleInput = document.querySelector('#title-input');
     
 
 
-    newProjectBtn.addEventListener('click', event => {
-        dialog.showModal();
-    })
+//     newProjectBtn.addEventListener('click', event => {
+//         dialog.showModal();
+//     })
 
-    const submitNewProjBtn = document.querySelector("#submit-new-proj-btn");
-    submitNewProjBtn.addEventListener('click', event => {
-        event.preventDefault();
-        //Add new project
-        ProjectManager().addProject(titleInput);
-        titleInput.value = "";
-        addProjectToList();
+//     const submitNewProjBtn = document.querySelector("#submit-new-proj-btn");
+//     submitNewProjBtn.addEventListener('click', event => {
+//         event.preventDefault();
+//         //Add new project
+//         ProjectManager().addProject(titleInput);
+//         titleInput.value = "";
+//         addProjectToList();
         
-        dialog.close();
+//         dialog.close();
 
-    })
+//     })
 
-    projectListDiv.appendChild(newProjectBtn);
+//     projectListDiv.appendChild(newProjectBtn);
 
-    return projectListDiv;
+//     return projectListDiv;
 
-}
+// }
 
 // const displayProjectTodos = () => {
 
@@ -144,10 +144,13 @@ const createAddNewProjectButton = () => {
 
 
 
-export { 
-    createHomePage,
-    addProjectToList,
-    createAddNewProjectButton,
-    // createAddNewToDoButton,
-    // displayProjectTodos,
- };
+ export { 
+     createHomePage,
+ }
+
+
+
+//     addProjectToList,
+//     createAddNewProjectButton,
+//     // createAddNewToDoButton,
+//     // displayProjectTodos,

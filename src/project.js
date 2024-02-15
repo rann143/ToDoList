@@ -19,27 +19,23 @@ function Project(title, toDos) {
 function ProjectManager() {
 
     const myProjects = [];
-    
-
-    const addProject = (title, toDos) => {
-
-        const newProject = new Project(title, toDos);
-
-        myProjects.push(newProject);
-
-
-    }
 
     const getMyProjects = () => myProjects;
+    
 
+    // const addProject = (title, toDos) => {
+
+    //     const newProject = new Project(title, toDos);
+
+    //     myProjects.push(newProject);
+
+
+    // }
 
     
 
-    const project1 = addProject("My First Project");
-    const project2 = addProject("My Second Project");
 
     return {
-        addProject,
         getMyProjects
     }
 

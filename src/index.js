@@ -1,9 +1,9 @@
 import { Project, ProjectManager } from './project.js';
-import { ToDoManager } from './todos.js';
+import { ToDoItem } from './todos.js';
 import { createHomePage,
-        addProjectToList,
+        //addProjectToList,
         // displayProjectTodos, 
-        createAddNewProjectButton,
+        //createAddNewProjectButton,
         // createAddNewToDoButton,
         } from './screendisplay.js';
 
@@ -17,7 +17,6 @@ container.appendChild(createHomePage());
 const projectManage = ProjectManager();
 const projectArray = projectManage.getMyProjects();
 
-console.log(projectManage.getMyProjects());
 
 
 
@@ -33,10 +32,69 @@ bigBoyProject.createNewToDoItem("Fix Sink");
 bigBoyProject.createNewToDoItem("Cook Dinner");
 projectArray.push(bigBoyProject);
 
+const createAddNewProjectButton = () => {
 
+    const projectListDiv = document.querySelector('#proj-list-div');
+
+    const dialog = document.querySelector("dialog");
+
+    const newProjectBtn = document.createElement('button');
+    newProjectBtn.setAttribute('id', 'new-proj-button');
+    newProjectBtn.textContent = "+ New Project";
+
+    const titleInput = document.querySelector('#title-input');
+    
+    newProjectBtn.addEventListener('click', event => {
+        dialog.showModal();
+    })
+
+    const submitNewProjBtn = document.querySelector("#submit-new-proj-btn");
+    submitNewProjBtn.addEventListener('click', event => {
+        event.preventDefault();
+        //Add new project
+        const newProject = new Project(titleInput.value);
+        projectArray.push(newProject);
+        addProjectToList();
+        titleInput.value = "";
+        
+        dialog.close();
+
+    })
+
+    projectListDiv.appendChild(newProjectBtn);
+
+    return projectListDiv;
+
+}
 
 createAddNewProjectButton();
+
+const addProjectToList = () => {
+
+    const projectListDiv = document.querySelector('#proj-list-div');
+
+    projectArray.forEach((proj) => {
+
+        const projBtn = document.createElement('button');
+        projBtn.classList.add('project-button');
+        projBtn.textContent = `${proj.title}`
+        projectListDiv.appendChild(projBtn);
+
+    })
+
+    return projectListDiv;
+
+}
+
 addProjectToList();
+
+
+
+
+
+
+//createAddNewProjectButton();
+//addProjectToList();
 //createAddNewToDoButton();
 //displayProjectTodos();
 
