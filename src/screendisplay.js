@@ -32,61 +32,7 @@ const createHomePage = () => {
 
 }
 
-// const addProjectToList = () => {
 
-//     const projectListDiv = document.querySelector('#proj-list-div');
-
-//     const project = ProjectManager();
-
-
-//     projArray.forEach((proj) => {
-
-//         const projBtn = document.createElement('button');
-//         projBtn.classList.add('project-button');
-//         projBtn.textContent = `${proj.title}`
-//         projectListDiv.appendChild(projBtn);
-
-//     })
-
-//     return projectListDiv;
-
-// }
-
-// const createAddNewProjectButton = () => {
-
-//     const projectListDiv = document.querySelector('#proj-list-div');
-
-//     const dialog = document.querySelector("dialog");
-
-//     const newProjectBtn = document.createElement('button');
-//     newProjectBtn.setAttribute('id', 'new-proj-button');
-//     newProjectBtn.textContent = "+ New Project";
-
-//     const titleInput = document.querySelector('#title-input');
-    
-
-
-//     newProjectBtn.addEventListener('click', event => {
-//         dialog.showModal();
-//     })
-
-//     const submitNewProjBtn = document.querySelector("#submit-new-proj-btn");
-//     submitNewProjBtn.addEventListener('click', event => {
-//         event.preventDefault();
-//         //Add new project
-//         ProjectManager().addProject(titleInput);
-//         titleInput.value = "";
-//         addProjectToList();
-        
-//         dialog.close();
-
-//     })
-
-//     projectListDiv.appendChild(newProjectBtn);
-
-//     return projectListDiv;
-
-// }
 
 // const displayProjectTodos = () => {
 
@@ -148,9 +94,3 @@ const createHomePage = () => {
      createHomePage,
  }
 
-
-
-//     addProjectToList,
-//     createAddNewProjectButton,
-//     // createAddNewToDoButton,
-//     // displayProjectTodos,

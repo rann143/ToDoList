@@ -13,24 +13,9 @@ const container = document.querySelector('#container');
 container.appendChild(createHomePage());
 
 
-
 const projectManage = ProjectManager();
 const projectArray = projectManage.getMyProjects();
 
-
-
-
-const sickoProj = new Project("Sicko Mode Project");
-projectArray.push(sickoProj);
-console.log(projectArray);
-
-sickoProj.createNewToDoItem("Oil Change");
-console.log(projectArray);
-
-const bigBoyProject = new Project("Big Boy Responsibilites");
-bigBoyProject.createNewToDoItem("Fix Sink");
-bigBoyProject.createNewToDoItem("Cook Dinner");
-projectArray.push(bigBoyProject);
 
 const createAddNewProjectButton = () => {
 
@@ -69,45 +54,8 @@ const createAddNewProjectButton = () => {
 
 createAddNewProjectButton();
 
-const addProjectToList = () => {
-
-    const projectListDiv = document.querySelector('#proj-list-div');
-
-    projectArray.forEach((proj) => {
-
-        const projBtn = document.createElement('button');
-        projBtn.classList.add('project-button');
-        projBtn.textContent = `${proj.title}`
-        projectListDiv.appendChild(projBtn);
-
-    })
-
-    return projectListDiv;
-
-}
-
-addProjectToList();
-
-
-
-
-
-
-//createAddNewProjectButton();
-//addProjectToList();
-//createAddNewToDoButton();
-//displayProjectTodos();
-
-// Functionality where if I click a project button in the list of projects,
-// the display of the current project div changes to that respective project
-// and shows it's to-dos
-
-const projBtns = document.querySelectorAll('.project-button');
-const currentProjectDiv = document.querySelector('#current-proj-div');
-
-
-// put this in screendisplay.js
 function clearProjDivChildren() {
+    const currentProjectDiv = document.querySelector('#current-proj-div');
 
     while (currentProjectDiv.firstChild) {
         currentProjectDiv.removeChild(currentProjectDiv.lastChild);
@@ -115,28 +63,135 @@ function clearProjDivChildren() {
 
 }
 
-projBtns.forEach((btn) => {
+function createAddNewToDoButton() {
 
-    btn.addEventListener('click', event => {
+    const currentProjectDiv = document.querySelector('#current-proj-div');
 
-        // remove contents to make space for clicked on project
-        clearProjDivChildren();
+    const toDoDialog = document.querySelector("#todo-dialog");
 
-        // display title of clicked on project
-        const projTitle = document.createElement('h2');
-        projTitle.textContent = `${btn.textContent}`;
-        currentProjectDiv.appendChild(projTitle);
+    const newToDoBtn = document.createElement('button');
+    newToDoBtn.setAttribute('id', 'new-todo-button');
+    newToDoBtn.textContent = "+ New To-Do";
 
-        // create add new todo button
-        createAddNewToDoButton();
+    newToDoBtn.addEventListener('click', event => {
+        toDoDialog.showModal();
+    })
 
-        //display todo list for that project
+    //This is breaking the button - won't show up.
+    // const submitNewToDoBtn = document.querySelector("#submit-new-todo-btn");
+    // submitNewToDoBtn.addEventListener('click', event => {
+    //     //event.preventDefault();
+    //     //Add new project
+    //     //ProjectManager().addProject();
+    //     toDoDialog.close();
 
+    // })
+
+    currentProjectDiv.appendChild(newToDoBtn);
+
+    return currentProjectDiv;
+
+
+}
+
+createAddNewToDoButton();
+
+const addProjectToList = () => {
+
+    const projectListDiv = document.querySelector('#proj-list-div');
+    const newProject = projectArray[projectArray.length - 1];
 
     
-    });
+        const projBtn = document.createElement('button');
+        projBtn.classList.add('project-button');
+        projBtn.textContent = `${newProject.title}`;
+        projBtn.setAttribute('data-projid', projectArray.indexOf(projectArray[projectArray.length - 1]));
 
-})
+        projBtn.addEventListener('click', event => {
+
+            const currentProjectDiv = document.querySelector('#current-proj-div');
+
+            // remove contents to make space for clicked on project
+            clearProjDivChildren()
+            // display title of clicked on project
+            const projTitle = document.createElement('h2');
+            projTitle.textContent = `${newProject.title}`;
+            currentProjectDiv.appendChild(projTitle);
+    
+            // create add new todo button
+            
+
+            //display todo list for that project
+    
+    
+        
+        });
+
+        projectListDiv.appendChild(projBtn);
+
+
+    return projectListDiv;
+
+}
+
+//This is for helping see the DOM, this projects don't have IDs
+//Remove when done
+const loadDefaultProject = () => {
+
+    const homeProj = new Project("Home");
+
+    homeProj.createNewToDoItem("Oil Change");
+    homeProj.createNewToDoItem("Fix Sink");
+
+    projectArray.push(homeProj);
+    console.log(projectArray);
+
+    const projectListDiv = document.querySelector('#proj-list-div');
+
+    projectArray.forEach((proj) => {
+
+        const projBtn = document.createElement('button');
+        projBtn.classList.add('project-button');
+        projBtn.textContent = `${proj.title}`;
+        projBtn.setAttribute('data-projid', projectArray.indexOf(projectArray[projectArray.length - 1]));
+
+        projBtn.addEventListener('click', event => {
+
+            const currentProjectDiv = document.querySelector('#current-proj-div');
+
+            // remove contents to make space for clicked on project
+            while (currentProjectDiv.firstChild) {
+                currentProjectDiv.removeChild(currentProjectDiv.lastChild);
+            }
+            // display title of clicked on project
+            const projTitle = document.createElement('h2');
+            projTitle.textContent = `${proj.title}`;
+            currentProjectDiv.appendChild(projTitle);
+    
+            // create add new todo button
+    
+            //display todo list for that project
+    
+    
+        
+        });
+
+        projectListDiv.appendChild(projBtn);
+
+    })
+
+
+    return projectListDiv;
+
+}
+
+loadDefaultProject();
+
+
+// Functionality where if I click a project button in the list of projects,
+// the display of the current project div changes to that respective project
+// and shows it's to-dos
+
 
 
 
