@@ -21,6 +21,10 @@ addProjectToList();
 createAddNewToDoButton();
 displayProjectTodos();
 
+// Functionality where if click a project button in the list of projects,
+// the display of the current project div changes to that respective project
+// and shows it's to-dos
+
 
 
 
