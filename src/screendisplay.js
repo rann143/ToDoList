@@ -1,5 +1,5 @@
 import { ToDoManager } from "./todos";
-import { ProjectManager } from "./project"; 
+import { Project, ProjectManager } from "./project"; 
 import { sub } from "date-fns";
 
 const projArray = ProjectManager().getMyProjects();
