@@ -81,7 +81,7 @@ const createAddNewProjectButton = () => {
 
 }
 
-const displayThisProjectSection = () => {
+const displayProjectTodos = () => {
 
     const currentProjectDiv = document.querySelector('#current-proj-div');
 
@@ -105,6 +105,35 @@ const displayThisProjectSection = () => {
 
 }
 
+const createAddNewToDoButton = () => {
+
+    const currentProjectDiv = document.querySelector('#current-proj-div');
+
+    const dialog = document.querySelector("dialog");
+
+    const newToDoBtn = document.createElement('button');
+    newToDoBtn.setAttribute('id', 'new-todo-button');
+    newToDoBtn.textContent = "+ New To-Do";
+
+    newToDoBtn.addEventListener('click', event => {
+        dialog.showModal();
+    })
+
+    const submitNewToDoBtn = document.querySelector("#submit-new-todo-btn");
+    submitNewToDoBtn.addEventListener('click', event => {
+        event.preventDefault();
+        //Add new project
+        //ProjectManager().addProject();
+        dialog.close();
+
+    })
+
+    currentProjectDiv.appendChild(newToDoBtn);
+
+    return currentProjectDiv;
+
+}
+
 
 
 
@@ -112,5 +141,6 @@ export {
     createHomePage,
     addProjectToList,
     createAddNewProjectButton,
-    displayThisProjectSection,
+    createAddNewToDoButton,
+    displayProjectTodos,
  };

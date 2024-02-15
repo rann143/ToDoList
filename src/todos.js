@@ -26,9 +26,9 @@ function ToDoManager() {
 
     }
 
-    createNewToDoItem("Big Dawg", "Biggest", "tmo", "high", "notes", true);
-    createNewToDoItem("Little Dawg", "Littlest", "next week", "low", "notes", false);
-    createNewToDoItem("Mid Dawg", "Middest", "wheneva", "med", "notes", false);
+    createNewToDoItem("Laundry", "Biggest", "tmo", "high", "notes", true);
+    createNewToDoItem("Grocery Shopping", "Littlest", "next week", "low", "notes", false);
+    createNewToDoItem("Study Session", "Middest", "wheneva", "med", "notes", false);
 
     const getToDos = () => myToDos;
 
