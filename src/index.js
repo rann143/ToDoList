@@ -96,6 +96,28 @@ function createAddNewToDoButton() {
 
 createAddNewToDoButton();
 
+const displayProjectTodos = () => {
+
+    const currentProjectDiv = document.querySelector('#current-proj-div');
+    // Need to fix this below
+    let newProject = projectArray[projectArray.length - 1];
+
+    newProject.toDos.forEach((todo) => {
+        const toDoBtn = document.createElement('button');
+        toDoBtn.classList.add('todo-button');
+        toDoBtn.textContent = `${todo.title}`
+
+        toDoBtn.addEventListener('click', event => {
+            console.log(todo);
+        })
+
+        currentProjectDiv.appendChild(toDoBtn);
+    })
+
+    return currentProjectDiv;
+
+}
+
 const addProjectToList = () => {
 
     const projectListDiv = document.querySelector('#proj-list-div');
@@ -122,7 +144,7 @@ const addProjectToList = () => {
             createAddNewToDoButton();
 
             //display todo list for that project
-    
+            displayProjectTodos();
     
         
         });
@@ -136,7 +158,7 @@ const addProjectToList = () => {
 
 //This is for helping see the DOM, this projects don't have IDs
 //Remove when done
-const loadDefaultProject = () => {
+const defaultProject = (function loadDefaultProject() {
 
     const homeProj = new Project("Home");
 
@@ -172,7 +194,21 @@ const loadDefaultProject = () => {
             createAddNewToDoButton();
     
             //display todo list for that project
-    
+            //displayProjectTodos();
+            // Need to fix this below
+            
+
+            homeProj.toDos.forEach((todo) => {
+            const toDoBtn = document.createElement('button');
+            toDoBtn.classList.add('todo-button');
+            toDoBtn.textContent = `${todo.title}`
+
+            toDoBtn.addEventListener('click', event => {
+                console.log(todo);
+                })
+
+            currentProjectDiv.appendChild(toDoBtn);
+            })
     
         
         });
@@ -181,13 +217,15 @@ const loadDefaultProject = () => {
 
     })
 
-
+    displayProjectTodos();
 
     return projectListDiv;
 
-}
+})();
 
-loadDefaultProject();
+// loadDefaultProject();
+
+
 
 
 // Functionality where if I click a project button in the list of projects,
