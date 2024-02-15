@@ -1,12 +1,18 @@
-import { ToDoManager } from "./todos.js"; 
+import { ToDoItem, ToDoManager } from "./todos.js"; 
 
 
 
 function Project(title, toDos) {
 
     this.title = title;
-    this.toDos = toDos;
+    this.toDos = [];
 
+    this.createNewToDoItem = function(title, descr, dueDate, priority, notes, completed) {
+        const newToDo = new ToDoItem(title, descr, dueDate, priority, notes, completed);
+        this.toDos.push(newToDo);
+    }
+
+    
 
 }
 
@@ -21,12 +27,16 @@ function ProjectManager() {
 
         myProjects.push(newProject);
 
+
     }
 
     const getMyProjects = () => myProjects;
+
+
     
-    addProject("My First Project", ToDoManager().getToDos());
-    addProject("My Second Project", ToDoManager().getToDos());
+
+    const project1 = addProject("My First Project");
+    const project2 = addProject("My Second Project");
 
     return {
         addProject,
@@ -37,4 +47,4 @@ function ProjectManager() {
 
 
 
-export { ProjectManager };
+export { Project, ProjectManager };

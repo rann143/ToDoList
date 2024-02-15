@@ -2,6 +2,7 @@ import { ToDoManager } from "./todos";
 import { ProjectManager } from "./project"; 
 import { sub } from "date-fns";
 
+const projArray = ProjectManager().getMyProjects();
 
 const createHomePage = () => {
 
@@ -37,7 +38,6 @@ const addProjectToList = () => {
 
     const project = ProjectManager();
 
-    const projArray = project.getMyProjects();
 
     projArray.forEach((proj) => {
 
@@ -62,6 +62,10 @@ const createAddNewProjectButton = () => {
     newProjectBtn.setAttribute('id', 'new-proj-button');
     newProjectBtn.textContent = "+ New Project";
 
+    const titleInput = document.querySelector('#title-input');
+    
+
+
     newProjectBtn.addEventListener('click', event => {
         dialog.showModal();
     })
@@ -70,7 +74,10 @@ const createAddNewProjectButton = () => {
     submitNewProjBtn.addEventListener('click', event => {
         event.preventDefault();
         //Add new project
-        //ProjectManager().addProject();
+        ProjectManager().addProject(titleInput);
+        titleInput.value = "";
+        addProjectToList();
+        
         dialog.close();
 
     })
@@ -81,58 +88,58 @@ const createAddNewProjectButton = () => {
 
 }
 
-const displayProjectTodos = () => {
+// const displayProjectTodos = () => {
 
-    const currentProjectDiv = document.querySelector('#current-proj-div');
+//     const currentProjectDiv = document.querySelector('#current-proj-div');
 
-    const toDo = ToDoManager()
+//     const toDo = ToDoManager()
 
-    const todoArray = toDo.getToDos();
+//     const todoArray = toDo.getToDos();
 
-    todoArray.forEach((todo) => {
-        const toDoBtn = document.createElement('button');
-        toDoBtn.classList.add('todo-button');
-        toDoBtn.textContent = `${todo.title}`
+//     todoArray.forEach((todo) => {
+//         const toDoBtn = document.createElement('button');
+//         toDoBtn.classList.add('todo-button');
+//         toDoBtn.textContent = `${todo.title}`
 
-        toDoBtn.addEventListener('click', event => {
-            console.log(todo);
-        })
+//         toDoBtn.addEventListener('click', event => {
+//             console.log(todo);
+//         })
 
-        currentProjectDiv.appendChild(toDoBtn);
-    })
+//         currentProjectDiv.appendChild(toDoBtn);
+//     })
 
-    return currentProjectDiv;
+//     return currentProjectDiv;
 
-}
+// }
 
-const createAddNewToDoButton = () => {
+// const createAddNewToDoButton = () => {
 
-    const currentProjectDiv = document.querySelector('#current-proj-div');
+//     const currentProjectDiv = document.querySelector('#current-proj-div');
 
-    const dialog = document.querySelector("dialog");
+//     const dialog = document.querySelector("dialog");
 
-    const newToDoBtn = document.createElement('button');
-    newToDoBtn.setAttribute('id', 'new-todo-button');
-    newToDoBtn.textContent = "+ New To-Do";
+//     const newToDoBtn = document.createElement('button');
+//     newToDoBtn.setAttribute('id', 'new-todo-button');
+//     newToDoBtn.textContent = "+ New To-Do";
 
-    newToDoBtn.addEventListener('click', event => {
-        dialog.showModal();
-    })
+//     newToDoBtn.addEventListener('click', event => {
+//         dialog.showModal();
+//     })
 
-    const submitNewToDoBtn = document.querySelector("#submit-new-todo-btn");
-    submitNewToDoBtn.addEventListener('click', event => {
-        event.preventDefault();
-        //Add new project
-        //ProjectManager().addProject();
-        dialog.close();
+//     const submitNewToDoBtn = document.querySelector("#submit-new-todo-btn");
+//     submitNewToDoBtn.addEventListener('click', event => {
+//         event.preventDefault();
+//         //Add new project
+//         //ProjectManager().addProject();
+//         dialog.close();
 
-    })
+//     })
 
-    currentProjectDiv.appendChild(newToDoBtn);
+//     currentProjectDiv.appendChild(newToDoBtn);
 
-    return currentProjectDiv;
+//     return currentProjectDiv;
 
-}
+// }
 
 
 
@@ -141,6 +148,6 @@ export {
     createHomePage,
     addProjectToList,
     createAddNewProjectButton,
-    createAddNewToDoButton,
-    displayProjectTodos,
+    // createAddNewToDoButton,
+    // displayProjectTodos,
  };

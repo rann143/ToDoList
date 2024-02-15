@@ -17,11 +17,11 @@ ToDoItem.prototype.toggleCompletedStatus = function() {
 
 function ToDoManager() {
 
-    const myToDos = [];
+    // const myToDos = [];
 
     const createNewToDoItem = (title, descr, dueDate, priority, notes, completed) => {
         const newToDo = new ToDoItem(title, descr, dueDate, priority, notes, completed);
-        myToDos.push(newToDo);
+        // myToDos.push(newToDo);
         // console.log(myToDos);
 
     }
@@ -30,14 +30,14 @@ function ToDoManager() {
     createNewToDoItem("Grocery Shopping", "Littlest", "next week", "low", "notes", false);
     createNewToDoItem("Study Session", "Middest", "wheneva", "med", "notes", false);
 
-    const getToDos = () => myToDos;
+    //const getToDos = () => myToDos;
 
     return {
         createNewToDoItem,
-        getToDos,
+        //getToDos,
     }
 
 
 };
 
-export { ToDoManager };
+export { ToDoItem, ToDoManager };
