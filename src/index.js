@@ -36,7 +36,10 @@ const addButtonForNewProject = () => {
     
             // create add new todo button
             createAddNewToDoButton();
+            //newToDoBtn.setAttribute('data-newtodoid', projectArray.indexOf(projectArray[projectArray.length - 1]));
 
+            
+            
     
         
         });
@@ -47,14 +50,13 @@ const addButtonForNewProject = () => {
             const thisProject = projectArray[projBtn.dataset.projid];
             console.log(thisProject);
 
-
-            // ************************
             const currentProjectDiv = document.querySelector('#current-proj-div');
 
             thisProject.toDos.forEach((todo) => {
                 const toDoBtn = document.createElement('button');
                 toDoBtn.classList.add('todo-button');
-                toDoBtn.textContent = `${todo.title}`
+                toDoBtn.textContent = `${todo.title}`;
+
 
                 toDoBtn.addEventListener('click', event => {
                     console.log(todo);
@@ -64,11 +66,39 @@ const addButtonForNewProject = () => {
             })
 
             return currentProjectDiv;
-            // **********************
 
         })
 
         projectListDiv.appendChild(projBtn);
+
+        // !!!!!!!!!!!!!!!!!!!
+        // const currentProjectDiv = document.querySelector('#current-proj-div');
+
+        // const toDoDialog = document.querySelector("#todo-dialog");
+
+        // const newToDoBtn = document.createElement('button');
+        // newToDoBtn.setAttribute('id', 'new-todo-button');
+        // newToDoBtn.textContent = "+ New To-Do";
+
+        // newToDoBtn.addEventListener('click', event => {
+        //     toDoDialog.showModal();
+        // })
+
+        // const submitNewToDoBtn = document.querySelector("#submit-new-todo-btn");
+        // submitNewToDoBtn.addEventListener('click', event => {
+        //     event.preventDefault();
+        //     //Get current Project & Add new todo
+        //     const thisProject = projectArray[projBtn.dataset.projid];
+        //     thisProject.createNewToDoItem();
+        //     toDoDialog.close();
+
+        // })
+
+        // currentProjectDiv.appendChild(newToDoBtn);
+
+
+        //return currentProjectDiv;
+        // !!!!!!!!!!!!!!!!!!!!
 
 
     return projectListDiv;
@@ -124,6 +154,7 @@ function clearProjDivChildren() {
 
 }
 
+//Do I even need this???
 function addNewToDo(title, descr, dueDate, priority, notes, completed) {
 
     //WORK ON THIS
@@ -169,16 +200,17 @@ function createAddNewToDoButton() {
 
     const newToDoBtn = document.createElement('button');
     newToDoBtn.setAttribute('id', 'new-todo-button');
+    //Not setting data id correctly. Resets everytime to be index of last item in project array (all are same number)
+    //newToDoBtn.setAttribute('data-newtodoid', projectArray.indexOf(projectArray[projectArray.length - 1]));
     newToDoBtn.textContent = "+ New To-Do";
 
     newToDoBtn.addEventListener('click', event => {
         toDoDialog.showModal();
     })
 
-    //This is breaking the button - won't show up.
     const submitNewToDoBtn = document.querySelector("#submit-new-todo-btn");
     submitNewToDoBtn.addEventListener('click', event => {
-        //event.preventDefault();
+        event.preventDefault();
         //Get current Project & Add new todo
         addNewToDo();
         toDoDialog.close();
@@ -187,7 +219,14 @@ function createAddNewToDoButton() {
 
     currentProjectDiv.appendChild(newToDoBtn);
 
-    return currentProjectDiv;
+    // ****
+    // Potential re-write
+
+
+    // ****
+
+    //return currentProjectDiv;
+    return newToDoBtn;
 
 
 }
@@ -254,34 +293,18 @@ const defaultProject = (function loadDefaultProject() {
             const projTitle = document.createElement('h2');
             projTitle.textContent = `${proj.title}`;
             currentProjectDiv.appendChild(projTitle);
-    
-            // create add new todo button
-            createAddNewToDoButton();
-    
-            //display todo list for that project
-            // homeProj.toDos.forEach((todo) => {
-            // const toDoBtn = document.createElement('button');
-            // toDoBtn.classList.add('todo-button');
-            // toDoBtn.textContent = `${todo.title}`
 
-            // toDoBtn.addEventListener('click', event => {
-            //     console.log(todo);
-            //     })
-
-            // currentProjectDiv.appendChild(toDoBtn);
-            // })
-
-            
-    
-        
         });
 
         projBtn.addEventListener('click', event => {
 
+
+             createAddNewToDoButton();
+
             const thisProject = projectArray[projBtn.dataset.projid];
             console.log(thisProject);
-// new
-const currentProjectDiv = document.querySelector('#current-proj-div');
+        // new
+            const currentProjectDiv = document.querySelector('#current-proj-div');
 
             thisProject.toDos.forEach((todo) => {
                 const toDoBtn = document.createElement('button');
@@ -300,7 +323,7 @@ const currentProjectDiv = document.querySelector('#current-proj-div');
         })
 
         projectListDiv.appendChild(projBtn);
-// new
+        // new
 
     })
 
