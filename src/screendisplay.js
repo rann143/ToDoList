@@ -15,6 +15,8 @@ const createHomePage = () => {
     projectsListTitle.setAttribute('id', 'proj-list-title');
         
     const currentProjectDiv = document.createElement('div');
+    // const currentProjectHeader = document.createElement('div');
+    // const currentProjectBody = document.createElement('div');
     const currentProjectTitle = document.createElement('h2');
     currentProjectDiv.setAttribute('id', 'current-proj-div');
     currentProjectTitle.setAttribute('id', 'current-proj-title');
