@@ -49,16 +49,61 @@ const addButtonForNewProject = () => {
                 toDoDialog.showModal();
             })
 
-    const submitNewToDoBtn = document.querySelector("#submit-new-todo-btn");
-    submitNewToDoBtn.addEventListener('click', event => {
-        event.preventDefault();
-        //Get current Project & Add new todo
-        addNewToDo();
-        toDoDialog.close();
+            const submitNewToDoBtn = document.querySelector("#submit-new-todo-btn");
+            submitNewToDoBtn.addEventListener('click', event => {
+                event.preventDefault();
+                //Get current Project & Add new todo
+                const toDoDialog = document.querySelector("#todo-dialog");
+                const thisProject = projectArray[newToDoBtn.dataset.newtodoid];
 
-    })
+                const titleInput = document.querySelector('#todo-title-input');
+                const descrInput = document.querySelector('#todo-descr-input');
+                const dateInput = document.querySelector('#todo-date-input');
+                const priorityInput = document.querySelector('#todo-priority-input');
+                const notesInput = document.querySelector('#todo-notes-input');
+                const completedInput = document.querySelector('#todo-completed-input');
 
-    currentProjectDiv.appendChild(newToDoBtn);
+                //can Delete this?
+                // title = titleInput.value;
+                // descr = descrInput.value;
+                // dueDate = dateInput.value;
+                // priority = priorityInput.value;
+                // notes = notesInput.value;
+                // completed = completedInput.value; //Just set as text input for now
+                
+                const thisToDo = thisProject.createNewToDoItem(titleInput.value, descrInput.value, 
+                    dateInput.value, priorityInput.value, notesInput.value, completedInput.value);
+
+                // *** Display ToDos *** NOT WORKING YET, NEED TO FIX
+                // const currentProjectDiv = document.querySelector('#current-proj-div');
+
+                
+                //     const toDoBtn = document.createElement('button');
+                //     toDoBtn.classList.add('todo-button');
+                //     toDoBtn.textContent = `${thisToDo.title}`;
+    
+                //     toDoBtn.addEventListener('click', event => {
+                //         console.log(thisProject.toDos);
+                //     })
+    
+                //     currentProjectDiv.appendChild(toDoBtn);
+                
+                // *** Display ToDos ***
+
+                toDoDialog.close();
+
+                titleInput.value = "";
+                descrInput.value = "";
+                dateInput.value = "";
+                priorityInput.value = "";
+                notesInput.value = "";
+                completedInput.value = "";
+
+                
+
+            })
+
+            currentProjectDiv.appendChild(newToDoBtn);
 
         
         });
@@ -88,37 +133,7 @@ const addButtonForNewProject = () => {
 
         })
 
-        projectListDiv.appendChild(projBtn);
-
-        // !!!!!!!!!!!!!!!!!!!
-        // const currentProjectDiv = document.querySelector('#current-proj-div');
-
-        // const toDoDialog = document.querySelector("#todo-dialog");
-
-        // const newToDoBtn = document.createElement('button');
-        // newToDoBtn.setAttribute('id', 'new-todo-button');
-        // newToDoBtn.textContent = "+ New To-Do";
-
-        // newToDoBtn.addEventListener('click', event => {
-        //     toDoDialog.showModal();
-        // })
-
-        // const submitNewToDoBtn = document.querySelector("#submit-new-todo-btn");
-        // submitNewToDoBtn.addEventListener('click', event => {
-        //     event.preventDefault();
-        //     //Get current Project & Add new todo
-        //     const thisProject = projectArray[projBtn.dataset.projid];
-        //     thisProject.createNewToDoItem();
-        //     toDoDialog.close();
-
-        // })
-
-        // currentProjectDiv.appendChild(newToDoBtn);
-
-
-        //return currentProjectDiv;
-        // !!!!!!!!!!!!!!!!!!!!
-
+    projectListDiv.appendChild(projBtn);
 
     return projectListDiv;
 
@@ -201,9 +216,9 @@ function addNewToDo(title, descr, dueDate, priority, notes, completed) {
 
     
 
-    const newToDo = new ToDoItem(title, descr, dueDate, priority, notes, completed);
+    //const newToDo = new ToDoItem(title, descr, dueDate, priority, notes, completed);
 
-    return newToDo;
+    //return newToDo;
 
     //now add this ToDoItem to the respective project
 
@@ -231,7 +246,7 @@ function createAddNewToDoButton() {
     submitNewToDoBtn.addEventListener('click', event => {
         event.preventDefault();
         //Get current Project & Add new todo
-        addNewToDo();
+        //addNewToDo();
         toDoDialog.close();
 
     })
