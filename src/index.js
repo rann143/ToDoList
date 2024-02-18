@@ -35,12 +35,31 @@ const addButtonForNewProject = () => {
             currentProjectDiv.appendChild(projTitle);
     
             // create add new todo button
-            createAddNewToDoButton();
-            //newToDoBtn.setAttribute('data-newtodoid', projectArray.indexOf(projectArray[projectArray.length - 1]));
+            
+            //try directly setting +New ToDo button id to projBtn id (this doesn't seem like a long-term reliable way but let's try it out)
+            const toDoDialog = document.querySelector("#todo-dialog");
 
-            
-            
-    
+            const newToDoBtn = document.createElement('button');
+            newToDoBtn.setAttribute('id', 'new-todo-button');
+            //Not setting data id correctly. Resets everytime to be index of last item in project array (all are same number)
+            newToDoBtn.setAttribute('data-newtodoid', projBtn.dataset.projid);
+            newToDoBtn.textContent = "+ New To-Do";
+
+            newToDoBtn.addEventListener('click', event => {
+                toDoDialog.showModal();
+            })
+
+    const submitNewToDoBtn = document.querySelector("#submit-new-todo-btn");
+    submitNewToDoBtn.addEventListener('click', event => {
+        event.preventDefault();
+        //Get current Project & Add new todo
+        addNewToDo();
+        toDoDialog.close();
+
+    })
+
+    currentProjectDiv.appendChild(newToDoBtn);
+
         
         });
 
@@ -201,7 +220,7 @@ function createAddNewToDoButton() {
     const newToDoBtn = document.createElement('button');
     newToDoBtn.setAttribute('id', 'new-todo-button');
     //Not setting data id correctly. Resets everytime to be index of last item in project array (all are same number)
-    //newToDoBtn.setAttribute('data-newtodoid', projectArray.indexOf(projectArray[projectArray.length - 1]));
+    newToDoBtn.setAttribute('data-newtodoid', projectArray.indexOf(projectArray[projectArray.length - 1]));
     newToDoBtn.textContent = "+ New To-Do";
 
     newToDoBtn.addEventListener('click', event => {
@@ -218,12 +237,6 @@ function createAddNewToDoButton() {
     })
 
     currentProjectDiv.appendChild(newToDoBtn);
-
-    // ****
-    // Potential re-write
-
-
-    // ****
 
     //return currentProjectDiv;
     return newToDoBtn;
@@ -256,8 +269,6 @@ const displayProjectTodos = () => {
     return currentProjectDiv;
 
 }
-
-
 
 
 //This is for helping see the DOM, this projects don't have IDs
@@ -297,13 +308,35 @@ const defaultProject = (function loadDefaultProject() {
         });
 
         projBtn.addEventListener('click', event => {
+            // create add new todo button
+            //try directly setting +New ToDo button id to projBtn id (this doesn't seem like a long-term reliable way but let's try it out)
+            const currentProjectDiv = document.querySelector('#current-proj-div');
+            
+            const toDoDialog = document.querySelector("#todo-dialog");
 
+            const newToDoBtn = document.createElement('button');
+            newToDoBtn.setAttribute('id', 'new-todo-button');
+            //Not setting data id correctly. Resets everytime to be index of last item in project array (all are same number)
+            newToDoBtn.setAttribute('data-newtodoid', projBtn.dataset.projid);
+            newToDoBtn.textContent = "+ New To-Do";
 
-             createAddNewToDoButton();
+            newToDoBtn.addEventListener('click', event => {
+                toDoDialog.showModal();
+            })
+
+            currentProjectDiv.appendChild(newToDoBtn);
+
+            //end of add new todo button
+        })
+
+        projBtn.addEventListener('click', event => {
+
+            //createAddNewToDoButton();
 
             const thisProject = projectArray[projBtn.dataset.projid];
             console.log(thisProject);
-        // new
+        
+        // create button for each new to-do item
             const currentProjectDiv = document.querySelector('#current-proj-div');
 
             thisProject.toDos.forEach((todo) => {
@@ -323,9 +356,13 @@ const defaultProject = (function loadDefaultProject() {
         })
 
         projectListDiv.appendChild(projBtn);
-        // new
+        // end of create button for each new to do item
 
-    })
+       
+
+        })
+
+        
 
     displayProjectTodos();
 
