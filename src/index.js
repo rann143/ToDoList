@@ -54,7 +54,6 @@ const addButtonForNewProject = () => {
                 event.preventDefault();
                 //Get current Project & Add new todo
                 const toDoDialog = document.querySelector("#todo-dialog");
-                const thisProject = projectArray[newToDoBtn.dataset.newtodoid];
 
                 const titleInput = document.querySelector('#todo-title-input');
                 const descrInput = document.querySelector('#todo-descr-input');
@@ -62,25 +61,24 @@ const addButtonForNewProject = () => {
                 const priorityInput = document.querySelector('#todo-priority-input');
                 const notesInput = document.querySelector('#todo-notes-input');
                 const completedInput = document.querySelector('#todo-completed-input');
-
-                //can Delete this?
-                // title = titleInput.value;
-                // descr = descrInput.value;
-                // dueDate = dateInput.value;
-                // priority = priorityInput.value;
-                // notes = notesInput.value;
-                // completed = completedInput.value; //Just set as text input for now
                 
-                const thisToDo = thisProject.createNewToDoItem(titleInput.value, descrInput.value, 
+                projectArray[newToDoBtn.dataset.newtodoid].createNewToDoItem(titleInput.value, descrInput.value, 
                     dateInput.value, priorityInput.value, notesInput.value, completedInput.value);
+
+                titleInput.value = "";
+                descrInput.value = "";
+                dateInput.value = "";
+                priorityInput.value = "";
+                notesInput.value = "";
+                completedInput.value = "";
 
                 // *** Display ToDos *** NOT WORKING YET, NEED TO FIX
                 // const currentProjectDiv = document.querySelector('#current-proj-div');
 
                 
-                //     const toDoBtn = document.createElement('button');
-                //     toDoBtn.classList.add('todo-button');
-                //     toDoBtn.textContent = `${thisToDo.title}`;
+                // const toDoBtn = document.createElement('button');
+                // toDoBtn.classList.add('todo-button');
+                // toDoBtn.textContent = `${titleInput.value}`;
     
                 //     toDoBtn.addEventListener('click', event => {
                 //         console.log(thisProject.toDos);
@@ -92,12 +90,7 @@ const addButtonForNewProject = () => {
 
                 toDoDialog.close();
 
-                titleInput.value = "";
-                descrInput.value = "";
-                dateInput.value = "";
-                priorityInput.value = "";
-                notesInput.value = "";
-                completedInput.value = "";
+                
 
                 
 
@@ -260,8 +253,6 @@ function createAddNewToDoButton() {
 }
 
 createAddNewToDoButton();
-
-
 
 const displayProjectTodos = () => {
 

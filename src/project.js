@@ -23,18 +23,6 @@ function ProjectManager() {
     const getMyProjects = () => myProjects;
     
 
-    // const addProject = (title, toDos) => {
-
-    //     const newProject = new Project(title, toDos);
-
-    //     myProjects.push(newProject);
-
-
-    // }
-
-    
-
-
     return {
         getMyProjects
     }
