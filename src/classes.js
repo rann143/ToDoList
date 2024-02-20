@@ -13,6 +13,11 @@ class Project {
     this.taskList.push(task); 
 }
 
+editTask(taskName, newName, newDescription, newDate, newPriority){
+    this.deleteTask(taskName);
+    this.createTask(newName, newDescription, newDate, newPriority);
+}
+
  deleteTask(thisTask) {
     this.taskList = this.taskList.filter((task) => task.name !== thisTask);
  }
@@ -51,8 +56,15 @@ function createProject(name) {
     return projectDependencies.projects;
 }
 
-function getProject(project) {
+function getProject(projectName) {
+    let thisProject = projectDependencies.projects.filter(project => project.name == projectName);
+    let selectedProject = thisProject[0];
+    return selectedProject;
     
+}
+
+function changeProjectName(projectName, newName) {
+    return getProject(projectName).name = newName;
 }
 
 function deleteProject(projectName) {
@@ -65,4 +77,4 @@ function deleteProject(projectName) {
     }
 }
 
-export {Project, Task, createProject, deleteProject, projectDependencies};
+export {Project, Task, createProject, deleteProject, getProject, changeProjectName, projectDependencies};
