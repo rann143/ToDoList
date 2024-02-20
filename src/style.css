@@ -27,7 +27,7 @@ h1 {
     align-items: flex-start;
 }
 
-.task-list-div {
+.task-container {
     grid-column: 2/3;
     display: grid;
     grid-template-rows: 50px 1fr;

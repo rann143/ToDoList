@@ -13,13 +13,13 @@ const display = (function displayContent() {
     projectListTitle.textContent = "Projects";
     projectListDiv.appendChild(projectListTitle);
 
-    const taskListDiv = document.createElement('div');
-    taskListDiv.classList.add("task-list-div");
+    const taskContainer = document.createElement('div');
+    taskContainer.classList.add("task-container");
     
     const taskListTitle = document.createElement('h2');
     taskListTitle.textContent = "Tasks";
     taskListTitle.classList.add('task-list-title');
-    taskListDiv.appendChild(taskListTitle);
+    taskContainer.appendChild(taskListTitle);
 
     const showProjectList = () => {
 
@@ -56,7 +56,7 @@ const display = (function displayContent() {
     }
 
     container.appendChild(projectListDiv);
-    container.appendChild(taskListDiv);
+    container.appendChild(taskContainer);
 
     return {
 
