@@ -69,6 +69,10 @@ form {
     align-items: start;
 }
 
+.hidden {
+    display: none;
+}
+
 .form-inputs {
     display: grid;
     grid-template-columns: 90px 1fr;
