@@ -1,7 +1,9 @@
 import { longFormatters } from "date-fns";
 import { Project, Task, } from "./classes.js"
 import {projectDependencies, projManager } from "./functions.js";
+import { display } from "./display.js"; 
 
+display.createNewProjectButton();
 
 
 projManager.createProject("Groceries for Feb");
@@ -61,6 +63,30 @@ projManager.showProjectsNames();
 
 
 
+
+display.showProjectList();
+
+//Event Listeners for Project Buttons
+const projectBtns = document.querySelectorAll(".project-button");
+projectBtns.forEach(button => {
+
+    button.addEventListener('click', (e) => { 
+        e.preventDefault();
+        projManager.showProjectTaskList(projManager.getProject(button.textContent).name)
+    });
+
+})
+
+// projectBtns.forEach(button => {
+
+//     button.addEventListener('click', (e) => {
+//         e.preventDefault();
+
+//     })
+
+// })
+
+//Event Listener for Add New Project Button
 
 
 
