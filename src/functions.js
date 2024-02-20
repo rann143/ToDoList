@@ -40,11 +40,32 @@ const projManager = (function ProjectManager() {
         }
     }
 
+    const showProjects = () => {
+        console.log(projectDependencies.projects);
+    }
+
+    const showProjectsNames = () => {
+        projectDependencies.projects.forEach(project => console.log(project.name));
+    }
+
+    const showProjectTasksNames = (projectName) => {
+
+        getProject(projectName).taskList.forEach(task => console.log(task.name))
+    }
+
+    const showProjectTaskList = (projectName) => {
+        console.log(getProject(projectName).taskList);
+    }
+
     return {
         createProject,
         getProject,
         changeProjectName,
-        deleteProject
+        deleteProject,
+        showProjects,
+        showProjectsNames,
+        showProjectTaskList,
+        showProjectTasksNames
     }
 
 })();
@@ -52,28 +73,5 @@ const projManager = (function ProjectManager() {
 export {projectDependencies, projManager}
 
 
-
-
-
-
-
-// What functions do I want?
-
-// Edit Task
-
-// Create a Task, add it to current project $
-    // When I create a Task, it gets added to currentProject.taskList
-
-
-
-
-
-
-// Create a new task $
-// Create a List of Tasks (a project) $
-// Create new projects $
-// Create a folder of projects $
-// Delete tasks $
-// Delete projects $
 
 

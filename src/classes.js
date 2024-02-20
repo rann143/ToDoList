@@ -39,44 +39,4 @@ class Task {
 
 }
 
-// MOVED ALL THESE TO FUNCTIONS MODULE. WRAPPED ALL PROJECT FUNCTIONS IN AN IIFE & EXPORTED TO INDEX.JS
-// *********************************************************************************************
-// const projectDependencies = (function() {
-//     const defaultProject = new Project("Default");
-//     const projects = [defaultProject];
-
-//     return {
-//         defaultProject,
-//         projects,
-//     }
-// })();
-
-// function createProject(name) {
-//     let newProject = new Project(name);
-//     projectDependencies.projects.push(newProject);
-//     //return newProject;
-//     return projectDependencies.projects;
-// }
-
-// function getProject(projectName) {
-//     let thisProject = projectDependencies.projects.filter(project => project.name == projectName);
-//     let selectedProject = thisProject[0];
-//     return selectedProject;
-    
-// }
-
-// function changeProjectName(projectName, newName) {
-//     return getProject(projectName).name = newName;
-// }
-
-// function deleteProject(projectName) {
-
-//     if (projectName !== projectDependencies.defaultProject.name) {
-//         projectDependencies.projects = projectDependencies.projects.filter(project => 
-//             project.name !== projectName);
-//     } else {
-//         alert("Can't remove Default Project");
-//     }
-// }
-
-export {Project, Task, };
+export {Project, Task,  };
