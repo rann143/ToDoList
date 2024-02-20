@@ -39,42 +39,44 @@ class Task {
 
 }
 
-const projectDependencies = (function() {
-    const defaultProject = new Project("Default");
-    const projects = [defaultProject];
+// MOVED ALL THIS TO FUNCTIONS MODULE. WRAPPED ALL PROJECT FUNCTIONS IN AN IIFE & EXPORTED TO INDEX.JS
+// *********************************************************************************************
+// const projectDependencies = (function() {
+//     const defaultProject = new Project("Default");
+//     const projects = [defaultProject];
 
-    return {
-        defaultProject,
-        projects,
-    }
-})();
+//     return {
+//         defaultProject,
+//         projects,
+//     }
+// })();
 
-function createProject(name) {
-    let newProject = new Project(name);
-    projectDependencies.projects.push(newProject);
-    //return newProject;
-    return projectDependencies.projects;
-}
+// function createProject(name) {
+//     let newProject = new Project(name);
+//     projectDependencies.projects.push(newProject);
+//     //return newProject;
+//     return projectDependencies.projects;
+// }
 
-function getProject(projectName) {
-    let thisProject = projectDependencies.projects.filter(project => project.name == projectName);
-    let selectedProject = thisProject[0];
-    return selectedProject;
+// function getProject(projectName) {
+//     let thisProject = projectDependencies.projects.filter(project => project.name == projectName);
+//     let selectedProject = thisProject[0];
+//     return selectedProject;
     
-}
+// }
 
-function changeProjectName(projectName, newName) {
-    return getProject(projectName).name = newName;
-}
+// function changeProjectName(projectName, newName) {
+//     return getProject(projectName).name = newName;
+// }
 
-function deleteProject(projectName) {
+// function deleteProject(projectName) {
 
-    if (projectName !== projectDependencies.defaultProject.name) {
-        projectDependencies.projects = projectDependencies.projects.filter(project => 
-            project.name !== projectName);
-    } else {
-        alert("Can't remove Default Project");
-    }
-}
+//     if (projectName !== projectDependencies.defaultProject.name) {
+//         projectDependencies.projects = projectDependencies.projects.filter(project => 
+//             project.name !== projectName);
+//     } else {
+//         alert("Can't remove Default Project");
+//     }
+// }
 
-export {Project, Task, createProject, deleteProject, getProject, changeProjectName, projectDependencies};
+export {Project, Task, };
