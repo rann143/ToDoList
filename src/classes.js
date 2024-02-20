@@ -39,7 +39,7 @@ class Task {
 
 }
 
-// MOVED ALL THIS TO FUNCTIONS MODULE. WRAPPED ALL PROJECT FUNCTIONS IN AN IIFE & EXPORTED TO INDEX.JS
+// MOVED ALL THESE TO FUNCTIONS MODULE. WRAPPED ALL PROJECT FUNCTIONS IN AN IIFE & EXPORTED TO INDEX.JS
 // *********************************************************************************************
 // const projectDependencies = (function() {
 //     const defaultProject = new Project("Default");
