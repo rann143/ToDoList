@@ -4,6 +4,7 @@ import {projectDependencies, projManager } from "./functions.js";
 import { display } from "./display.js"; 
 
 display.createNewProjectButton();
+display.createNewTaskButton();
 
 
 projManager.createProject("Groceries for Feb");
@@ -73,6 +74,7 @@ projectDependencies.projects.forEach((project) => {
 //Event Listeners for Project Buttons
 const projectBtns = document.querySelectorAll(".project-button");
 const taskListDiv = document.querySelector('.task-list-div');
+const newProjectButton = document.querySelector("new-proj-button");
 
 projectBtns.forEach(button => {
 
@@ -96,8 +98,7 @@ projectBtns.forEach(button => {
 })
 
 
-
 //Event Listener for Add New Project Button
-
+//newProjectButton.addEventListener('click', )
 
 

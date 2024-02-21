@@ -25,17 +25,6 @@ const display = (function displayContent() {
     taskListDiv.classList.add('task-list-div');
     taskContainer.appendChild(taskListDiv);
 
-    const displayProject = (project) => {
-
-            const projectBtn = document.createElement('button');
-            
-            projectBtn.textContent = project.name;
-            projectBtn.classList.add("project-button");
-
-            projectListDiv.appendChild(projectBtn);
-
-    };
-
     const createNewProjectButton = () => {
 
         const newProjectButton = document.createElement('button');
@@ -46,6 +35,25 @@ const display = (function displayContent() {
         //newProjectButton.addEventListener('click', )
 
     }
+
+    const createNewTaskButton = () => {
+        const newTaskButton = document.createElement('button');
+        newTaskButton.classList.add('new-task-button');
+        newTaskButton.textContent = "Add New Task";
+
+        taskContainer.appendChild(newTaskButton);
+    }
+
+    const displayProject = (project) => {
+
+            const projectBtn = document.createElement('button');
+            
+            projectBtn.textContent = project.name;
+            projectBtn.classList.add("project-button");
+
+            projectListDiv.appendChild(projectBtn);
+
+    };
 
     const displayTask = (task) => {
 
@@ -62,8 +70,10 @@ const display = (function displayContent() {
 
     return {
 
-        displayProject,
+        
         createNewProjectButton,
+        createNewTaskButton,
+        displayProject,
         displayTask,
 
     }
