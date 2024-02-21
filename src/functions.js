@@ -50,7 +50,9 @@ const projManager = (function ProjectManager() {
 
     const showProjectTasksNames = (projectName) => {
 
-        getProject(projectName).taskList.forEach(task => console.log(task.name))
+        //getProject(projectName).taskList.forEach(task => console.log(task.name))
+
+        
     }
 
     const showProjectTaskList = (projectName) => {

@@ -21,6 +21,10 @@ const display = (function displayContent() {
     taskListTitle.classList.add('task-list-title');
     taskContainer.appendChild(taskListTitle);
 
+    const taskListDiv = document.createElement('div');
+    taskListDiv.classList.add('task-list-div');
+    taskContainer.appendChild(taskListDiv);
+
     const showProjectList = () => {
 
         projectDependencies.projects.forEach((project) => {
@@ -28,10 +32,6 @@ const display = (function displayContent() {
             
             projectBtn.textContent = project.name;
             projectBtn.classList.add("project-button");
-
-            // projectBtn.addEventListener('click', (e) => {
-            //     projManager.showProjectTaskList(project.name);
-            // });
 
             projectListDiv.appendChild(projectBtn);
         })
@@ -49,11 +49,15 @@ const display = (function displayContent() {
 
     }
 
-    const showTasks = () => {
-        
-        
+    const displayTask = (task) => {
+
+            const taskDiv = document.createElement('div');
+            taskDiv.classList.add('task-div');
+            taskDiv.textContent = `${task.name} ${task.description} ${task.date} ${task.priority}`;
+            taskListDiv.appendChild(taskDiv);
 
     }
+
 
     container.appendChild(projectListDiv);
     container.appendChild(taskContainer);
@@ -61,7 +65,8 @@ const display = (function displayContent() {
     return {
 
         showProjectList,
-        createNewProjectButton
+        createNewProjectButton,
+        displayTask,
 
     }
 

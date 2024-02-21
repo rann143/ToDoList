@@ -68,6 +68,8 @@ display.showProjectList();
 
 //Event Listeners for Project Buttons
 const projectBtns = document.querySelectorAll(".project-button");
+const taskListDiv = document.querySelector('.task-list-div');
+
 projectBtns.forEach(button => {
 
     button.addEventListener('click', (e) => { 
@@ -77,14 +79,19 @@ projectBtns.forEach(button => {
 
 })
 
-// projectBtns.forEach(button => {
+projectBtns.forEach(button => {
 
-//     button.addEventListener('click', (e) => {
-//         e.preventDefault();
+    button.addEventListener('click', (e) => { 
+        e.preventDefault();
+        taskListDiv.replaceChildren();
+        projManager.getProject(button.textContent).taskList.forEach((task) => {
+            display.displayTask(task);
+        })
+    });
 
-//     })
+})
 
-// })
+
 
 //Event Listener for Add New Project Button
 
