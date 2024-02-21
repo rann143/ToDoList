@@ -1,21 +1,27 @@
 body {
-
+    display: flex;
+    flex-direction: column;
     padding-left: 250px;
     padding-right: 250px;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
 
 }
 
+
+header {
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    min-width: 260px;
+}
 h1 {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    min-width: 260px;
 }
 
 #container {
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 200px minmax(300px, 1fr);
     justify-content: center;
     gap: 10px;
     
