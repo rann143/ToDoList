@@ -25,16 +25,14 @@ const display = (function displayContent() {
     taskListDiv.classList.add('task-list-div');
     taskContainer.appendChild(taskListDiv);
 
-    const showProjectList = () => {
+    const displayProject = (project) => {
 
-        projectDependencies.projects.forEach((project) => {
             const projectBtn = document.createElement('button');
             
             projectBtn.textContent = project.name;
             projectBtn.classList.add("project-button");
 
             projectListDiv.appendChild(projectBtn);
-        })
 
     };
 
@@ -64,7 +62,7 @@ const display = (function displayContent() {
 
     return {
 
-        showProjectList,
+        displayProject,
         createNewProjectButton,
         displayTask,
 

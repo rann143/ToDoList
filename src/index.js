@@ -64,7 +64,11 @@ projManager.showProjectsNames();
 
 
 
-display.showProjectList();
+//display.showProjectList();
+
+projectDependencies.projects.forEach((project) => {
+    display.displayProject(project);
+})
 
 //Event Listeners for Project Buttons
 const projectBtns = document.querySelectorAll(".project-button");
