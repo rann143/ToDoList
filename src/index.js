@@ -1,6 +1,7 @@
 import { longFormatters } from "date-fns";
-import { Project, Task, } from "./classes.js"
+import { Project, Task, } from "./classes.js";
 import {projectDependencies, projManager } from "./functions.js";
+import { modalManager } from "./modals.js";
 import { display } from "./display.js"; 
 
 display.createNewProjectButton();

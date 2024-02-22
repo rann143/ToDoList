@@ -3,9 +3,7 @@ body {
     flex-direction: column;
     padding-left: 250px;
     padding-right: 250px;
-
 }
-
 
 header {
     align-self: center;
@@ -13,6 +11,7 @@ header {
     justify-content: center;
     min-width: 260px;
 }
+
 h1 {
     display: flex;
     justify-content: center;
@@ -115,16 +114,14 @@ h1 {
     margin-bottom: 20px;
 }
 
-form {
+/* form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: start;
-}
+} */
 
-.hidden {
-    display: none;
-}
+
 
 .form-inputs {
     display: grid;
@@ -145,3 +142,65 @@ form {
     border-radius: 5px;
     background-color: rgb(235, 208, 172);
 }
+
+
+
+button {
+    cursor: pointer;
+    border: none;
+    font-weight: 600;
+  }
+
+/* FOR MODALS */
+
+#container .hidden {
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.modal {
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.4rem;
+    width: 450px;
+    padding: 1.3rem;
+    min-height: 250px;
+    position: absolute;
+    top: 20%;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    z-index: 2;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    z-index: 1;
+  }
+
+  .btn-close {
+    align-self: flex-end;
+    padding: 0.5rem 0.7rem;
+    background: #eee;
+    border-radius: 50%;
+  }

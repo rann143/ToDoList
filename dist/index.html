@@ -15,14 +15,16 @@
     <div id="container">
 
 
-            <form action="" id="new-project-form" class="hidden">
-                <div class="form-inputs">
-                    <label for="title-input">Title:</label>
-                    <input type="text" id="title-input" name="title">
-                </div>
-                <button id="submit-proj-btn">Submit</button>
-            </form>
-
+            <div class="modal hidden">
+                    <button type="button" class="btn-close">X</button>
+                
+                    <form action="">
+                        <label for="title-input">Title:</label>
+                        <input type="text" id="title-input" name="title">
+                        <button class="btn">Submit</button>
+                    </form>
+                
+            </div>
 
             <form action="" id="new-todo-form" class="hidden">
                 <div class="form-inputs">
@@ -48,7 +50,11 @@
                 <button id="submit-todo-btn">Submit</button>
             </form>
 
+            
+
     </div>
+
+    <div class="overlay hidden"></div>
     
 </body>
 </html>

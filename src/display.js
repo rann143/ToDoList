@@ -1,6 +1,7 @@
 import "./style.css";
 import { Project, Task } from "./classes.js";
 import { projectDependencies, projManager } from "./functions.js";
+import { ManageModals } from "./modals.js";
 
 const display = (function displayContent() {
 
@@ -25,14 +26,17 @@ const display = (function displayContent() {
     taskListDiv.classList.add('task-list-div');
     taskContainer.appendChild(taskListDiv);
 
+    const closeBtn = document.querySelector('.btn-close');
+    closeBtn.addEventListener('click', ManageModals().closeModal);
+
     const createNewProjectButton = () => {
 
         const newProjectButton = document.createElement('button');
         newProjectButton.classList.add("new-proj-button");
         newProjectButton.textContent = "Add New Project";
+        newProjectButton.addEventListener('click', ManageModals().openModal);
 
         projectListDiv.appendChild(newProjectButton);
-        //newProjectButton.addEventListener('click', )
 
     }
 
@@ -63,7 +67,6 @@ const display = (function displayContent() {
             taskListDiv.appendChild(taskDiv);
 
     }
-
 
     container.appendChild(projectListDiv);
     container.appendChild(taskContainer);
