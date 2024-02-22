@@ -166,11 +166,11 @@ button {
     justify-self: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 0.4rem;
-    width: 450px;
+    width: 300px;
     padding: 1.3rem;
-    min-height: 250px;
+    min-height: 150px;
     position: absolute;
     top: 20%;
     background-color: white;
@@ -183,11 +183,11 @@ button {
     justify-self: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex;
     gap: 0.4rem;
-    width: 450px;
+    width: 400px;
     padding: 1.3rem;
-    min-height: 250px;
+    min-height: 300px;
     position: absolute;
     top: 20%;
     background-color: white;
@@ -197,10 +197,17 @@ button {
   }
 
   form {
+    padding-top: 20px;
+    padding-bottom: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     gap: 10px;
+  }
+
+  label {
+    font-size: 20px;
+    font-weight: bold;
   }
 
   .overlay {
@@ -216,7 +223,20 @@ button {
     z-index: 1;
   }
 
+  .btn {
+    display: inline-block;
+    padding: 0.8rem 1.4rem;
+    font-weight: 700;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1em;
+  }
+
   .btn-close {
+    position: absolute;
+    justify-self: flex-start;
     align-self: flex-end;
     padding: 0.5rem 0.7rem;
     background: #eee;

@@ -20,7 +20,7 @@
                 
                     <form action="">
                         <label for="proj-title-input">Title:</label>
-                        <input type="text" id="proj-title-input" name="title">
+                        <input type="text" id="proj-title-input" name="title" required>
                         <button class="btn" id="proj-sub-btn">Submit</button>
                     </form>
                 
@@ -29,22 +29,22 @@
             <div class="modal task-modal hidden">
                 <button type="button" class="btn-close">X</button>
 
-                <form action="" id="new-todo-form">
+                <form action="" id="new-task-form">
                     <div class="form-inputs">
-                        <label for="todo-title-input">Title:</label>
-                        <input type="text" id="todo-title-input" name="todo-title">
+                        <label for="task-title-input">Title:</label>
+                        <input type="text" id="task-title-input" name="task-title">
                     </div>
                     <div class="form-inputs">
-                        <label for="todo-descr-input">Description:</label>
-                        <input type="text" id="todo-descr-input" name="todo-descr">
+                        <label for="task-descr-input">Description:</label>
+                        <input type="text" id="task-descr-input" name="task-descr">
                     </div>
                     <div class="form-inputs">
-                        <label for="todo-date-input">Due Date:</label>
-                        <input type="text" id="todo-date-input" name="todo-date">
+                        <label for="task-date-input">Due Date:</label>
+                        <input type="text" id="task-date-input" name="task-date">
                     </div>
                     <div class="form-inputs">
-                        <label for="todo-priority-input">Priority:</label>
-                        <input type="text" id="todo-priority-input" name="todo-priority">
+                        <label for="task-priority-input">Priority:</label>
+                        <input type="text" id="task-priority-input" name="task-priority">
                     </div>
                     <button class="btn" id="task-sub-btn">Submit</button>
                 </form>

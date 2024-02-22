@@ -76,12 +76,13 @@ const display = (function displayContent() {
 
     const projectTitleInput = document.querySelector('#proj-title-input');
     const addNewProjectToScreen = () => {
-        
-        let projectName = projectTitleInput.value
-        projectTitleInput.value = "";
-        let newProject = projManager.createProject(projectName);
-        display.displayProject(newProject);
-        projManager.showProjects();
+        if (projectTitleInput.value !== "") {
+            let projectName = projectTitleInput.value
+            projectTitleInput.value = "";
+            let newProject = projManager.createProject(projectName);
+            display.displayProject(newProject);
+            projManager.showProjects();
+        } else return;
     }
 
 
@@ -91,6 +92,25 @@ const display = (function displayContent() {
             taskDiv.classList.add('task-div');
             taskDiv.textContent = `${task.name} ${task.description} ${task.date} ${task.priority}`;
             taskListDiv.appendChild(taskDiv);
+
+    }
+
+    const taskTitleInput = document.querySelector('#task-title-input');
+    const taskDescrInput = document.querySelector('#task-descr-input');
+    const taskDateInput = document.querySelector('#task-date-input');
+    const taskPriorityInput = document.querySelector('#task-priority-input');
+    const addNewTaskToScreen = () => { 
+        let taskName = taskTitleInput.value;
+        let taskDesc = taskDescrInput.value;
+        let taskDate = taskDateInput.value;
+        let taskPriority = taskPriorityInput.value;
+
+        taskTitleInput.value = "";
+        taskDescrInput.value = "";
+        taskDateInput.value = "";
+        taskPriorityInput.value = "";
+
+        let newTask;
 
     }
 
@@ -105,6 +125,7 @@ const display = (function displayContent() {
         displayProject,
         displayTask,
         addNewProjectToScreen,
+        addNewTaskToScreen
 
     }
 

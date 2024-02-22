@@ -101,6 +101,12 @@ projectSubmitBtn.addEventListener('click', (e) => {
     ManageModals().closeModal();
 })
 
-const taskSubmitBtn = document.querySelector('#task-sub-btn');
+//UNCOMMENT ONCE addNewTaskToScreen(); IS FINISHED
+// const taskSubmitBtn = document.querySelector('#task-sub-btn');
+// taskSubmitBtn.addEventListener('click', (e) => {
+//     e.preventDefault();
+//     display.addNewTaskToScreen();
+//     ManageModals().closeModal();
+// })
 
 
