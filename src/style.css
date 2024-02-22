@@ -125,8 +125,8 @@ h1 {
 
 .form-inputs {
     display: grid;
-    grid-template-columns: 90px 1fr;
-    margin-bottom: 10px;
+    grid-template-columns: 100px 1fr;
+    gap: 20px;
 }
 
 #submit-new-proj-btn {
@@ -183,7 +183,7 @@ button {
     justify-self: center;
     display: flex;
     flex-direction: column;
-    justify-content: flex;
+    justify-content: flex-start;
     gap: 0.4rem;
     width: 400px;
     padding: 1.3rem;
@@ -197,13 +197,14 @@ button {
   }
 
   form {
-    padding-top: 20px;
+    margin-top: 50px;
     padding-bottom: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    gap: 10px;
+    gap: 20px;
   }
+
 
   label {
     font-size: 20px;
