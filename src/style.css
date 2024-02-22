@@ -162,6 +162,27 @@ button {
 }
 
 .modal {
+    
+}
+
+.project-modal {
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.4rem;
+    width: 450px;
+    padding: 1.3rem;
+    min-height: 250px;
+    position: absolute;
+    top: 20%;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    z-index: 2;
+  }
+
+.task-modal {
     justify-self: center;
     display: flex;
     flex-direction: column;

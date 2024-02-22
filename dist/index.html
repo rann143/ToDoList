@@ -15,7 +15,7 @@
     <div id="container">
 
 
-            <div class="modal hidden">
+            <div class="modal project-modal hidden">
                     <button type="button" class="btn-close">X</button>
                 
                     <form action="">
@@ -26,29 +26,29 @@
                 
             </div>
 
-            <form action="" id="new-todo-form" class="hidden">
-                <div class="form-inputs">
-                    <label for="todo-title-input">Title:</label>
-                    <input type="text" id="todo-title-input" name="todo-title">
-                </div>
+            <div class="modal task-modal hidden">
+                <button type="button" class="btn-close">X</button>
 
-                <div class="form-inputs">
-                    <label for="todo-descr-input">Description:</label>
-                    <input type="text" id="todo-descr-input" name="todo-descr">
-                </div>
-
-                <div class="form-inputs">
-                    <label for="todo-date-input">Due Date:</label>
-                    <input type="text" id="todo-date-input" name="todo-date">
-                </div>
-
-                <div class="form-inputs">
-                    <label for="todo-priority-input">Priority:</label>
-                    <input type="text" id="todo-priority-input" name="todo-priority">
-                </div>
-
-                <button id="submit-todo-btn">Submit</button>
-            </form>
+                <form action="" id="new-todo-form">
+                    <div class="form-inputs">
+                        <label for="todo-title-input">Title:</label>
+                        <input type="text" id="todo-title-input" name="todo-title">
+                    </div>
+                    <div class="form-inputs">
+                        <label for="todo-descr-input">Description:</label>
+                        <input type="text" id="todo-descr-input" name="todo-descr">
+                    </div>
+                    <div class="form-inputs">
+                        <label for="todo-date-input">Due Date:</label>
+                        <input type="text" id="todo-date-input" name="todo-date">
+                    </div>
+                    <div class="form-inputs">
+                        <label for="todo-priority-input">Priority:</label>
+                        <input type="text" id="todo-priority-input" name="todo-priority">
+                    </div>
+                    <button class="btn">Submit</button>
+                </form>
+            </div>
 
             
 

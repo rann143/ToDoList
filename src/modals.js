@@ -6,21 +6,33 @@ import { Project, Task, } from "./classes.js";
 
 function ManageModals() {
 
-    const modal = document.querySelector('.modal');
+    const modals = document.querySelectorAll('.modal');
+
+    const projectModal = document.querySelector('.project-modal');
+    const taskModal = document.querySelector('.task-modal');
     const overlay = document.querySelector('.overlay');
 
-    const openModal = () => {
-        modal.classList.remove('hidden');
+    const openProjectModal = () => {
+        projectModal.classList.remove('hidden');
         overlay.classList.remove('hidden');
     };
 
+    const openTaskModal = () => {
+        taskModal.classList.remove('hidden');
+        overlay.classList.remove('hidden');
+    }
+
     const closeModal = () => {
-        modal.classList.add('hidden');
+        modals.forEach(modal => {
+            modal.classList.add('hidden');
+        })
+        
         overlay.classList.add('hidden');
     }
 
     return {
-        openModal,
+        openProjectModal,
+        openTaskModal,
         closeModal
     }
 

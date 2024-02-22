@@ -8,6 +8,7 @@ display.createNewProjectButton();
 display.createNewTaskButton();
 
 
+//CREATING PLACEHOLDER PROJECTS FOR VISUALS & PRACTICE
 projManager.createProject("Groceries for Feb");
 projManager.createProject("Shopping for Feb");
 projManager.createProject("Activities for Feb");
@@ -66,7 +67,7 @@ projManager.showProjectsNames();
 
 
 
-//display.showProjectList();
+//DISPLAYING BELOW
 
 projectDependencies.projects.forEach((project) => {
     display.displayProject(project);
