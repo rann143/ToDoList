@@ -74,6 +74,16 @@ const display = (function displayContent() {
 
     };
 
+    const projectTitleInput = document.querySelector('#proj-title-input');
+    const addNewProjectToScreen = () => {
+        
+        let projectName = projectTitleInput.value
+        projectTitleInput.value = "";
+        let newProject = projManager.createProject(projectName);
+        display.displayProject(newProject);
+        projManager.showProjects();
+    }
+
 
     const displayTask = (task) => {
 
@@ -94,7 +104,7 @@ const display = (function displayContent() {
         createNewTaskButton,
         displayProject,
         displayTask,
-        //addProjectToScreen
+        addNewProjectToScreen,
 
     }
 

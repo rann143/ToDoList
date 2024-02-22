@@ -94,17 +94,13 @@ projectBtns.forEach(button => {
 
 })
 
-const projectTitleInput = document.querySelector('#proj-title-input');
-//Event Listener for Add New Project SUBMIT Button
 const projectSubmitBtn = document.querySelector('#proj-sub-btn');
-    projectSubmitBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        let projectName = projectTitleInput.value
-        projectTitleInput.value = "";
-        let newProject = projManager.createProject(projectName);
-        display.displayProject(newProject);
-        projManager.showProjects();
-        ManageModals().closeModal();
-    })
+projectSubmitBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    display.addNewProjectToScreen();
+    ManageModals().closeModal();
+})
+
+const taskSubmitBtn = document.querySelector('#task-sub-btn');
 
 
