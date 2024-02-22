@@ -12,11 +12,11 @@ const projectDependencies = (function() {
 
 const projManager = (function ProjectManager() {
 
+
     const createProject = (name) => {
         let newProject = new Project(name);
         projectDependencies.projects.push(newProject);
-        //return newProject;
-        return projectDependencies.projects;
+        return newProject;
     }
 
     const getProject = (projectName) => {

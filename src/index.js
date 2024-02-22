@@ -1,7 +1,7 @@
 import { longFormatters } from "date-fns";
 import { Project, Task, } from "./classes.js";
 import {projectDependencies, projManager } from "./functions.js";
-import { modalManager } from "./modals.js";
+import { ManageModals } from "./modals.js";
 import { display } from "./display.js"; 
 
 display.createNewProjectButton();
@@ -10,11 +10,6 @@ display.createNewTaskButton();
 
 //CREATING PLACEHOLDER PROJECTS FOR VISUALS & PRACTICE
 projManager.createProject("Groceries for Feb");
-projManager.createProject("Shopping for Feb");
-projManager.createProject("Activities for Feb");
-
-console.log("create passion fruit");
-projManager.createProject("Buy Passion Fruit");
 
 projectDependencies.projects.forEach(project => console.log(project));
 
@@ -99,8 +94,17 @@ projectBtns.forEach(button => {
 
 })
 
-
-//Event Listener for Add New Project Button
-//newProjectButton.addEventListener('click', )
+const projectTitleInput = document.querySelector('#proj-title-input');
+//Event Listener for Add New Project SUBMIT Button
+const projectSubmitBtn = document.querySelector('#proj-sub-btn');
+    projectSubmitBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        let projectName = projectTitleInput.value
+        projectTitleInput.value = "";
+        let newProject = projManager.createProject(projectName);
+        display.displayProject(newProject);
+        projManager.showProjects();
+        ManageModals().closeModal();
+    })
 
 

@@ -32,10 +32,13 @@ const display = (function displayContent() {
     taskListDiv.classList.add('task-list-div');
     taskContainer.appendChild(taskListDiv);
 
+    //ManageModals
+    const modalManager = ManageModals();
+
     //Close Button on Modals
     const closeBtns = document.querySelectorAll('.btn-close');
     closeBtns.forEach(button => {
-        button.addEventListener('click', ManageModals().closeModal);
+        button.addEventListener('click', modalManager.closeModal);
     })
 
 
@@ -44,7 +47,7 @@ const display = (function displayContent() {
         const newProjectButton = document.createElement('button');
         newProjectButton.classList.add("new-proj-button");
         newProjectButton.textContent = "Add New Project";
-        newProjectButton.addEventListener('click', ManageModals().openProjectModal);
+        newProjectButton.addEventListener('click', modalManager.openProjectModal);
 
         projectListDiv.appendChild(newProjectButton);
 
@@ -54,10 +57,11 @@ const display = (function displayContent() {
         const newTaskButton = document.createElement('button');
         newTaskButton.classList.add('new-task-button');
         newTaskButton.textContent = "Add New Task";
-        newTaskButton.addEventListener('click', ManageModals().openTaskModal);
+        newTaskButton.addEventListener('click', modalManager.openTaskModal);
 
         taskContainer.appendChild(newTaskButton);
     }
+
 
     const displayProject = (project) => {
 
@@ -69,6 +73,7 @@ const display = (function displayContent() {
             projectListDiv.appendChild(projectBtn);
 
     };
+
 
     const displayTask = (task) => {
 
@@ -89,6 +94,7 @@ const display = (function displayContent() {
         createNewTaskButton,
         displayProject,
         displayTask,
+        //addProjectToScreen
 
     }
 
