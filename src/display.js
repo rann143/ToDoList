@@ -80,10 +80,13 @@ const display = (function displayContent() {
             let projectName = projectTitleInput.value
             projectTitleInput.value = "";
             let newProject = projManager.createProject(projectName);
-            display.displayProject(newProject);
+            displayProject(newProject);
             projManager.showProjects();
         } else return;
     }
+    // ******************************************************************
+    // ^NEW PROJECT BUTTONS ARE NOT BEING ADDED TO THE projBtns NODELIST IN index.js
+    // ******************************************************************
 
 
     const displayTask = (task) => {
@@ -95,13 +98,15 @@ const display = (function displayContent() {
 
     }
 
+    
+
     const taskTitleInput = document.querySelector('#task-title-input');
     const taskDescrInput = document.querySelector('#task-descr-input');
     const taskDateInput = document.querySelector('#task-date-input');
     const taskPriorityInput = document.querySelector('#task-priority-input');
     const addNewTaskToScreen = () => { 
         let taskName = taskTitleInput.value;
-        let taskDesc = taskDescrInput.value;
+        let taskDescr = taskDescrInput.value;
         let taskDate = taskDateInput.value;
         let taskPriority = taskPriorityInput.value;
 
@@ -109,8 +114,11 @@ const display = (function displayContent() {
         taskDescrInput.value = "";
         taskDateInput.value = "";
         taskPriorityInput.value = "";
+        //FIGURING OUT HOW AND WHERE TO DEFINE CURRENTPROJECT
+        let newTask = projManager.getProject(currentProject.name).createTask(taskName, taskDescr, taskDate, taskPriority);
+        console.log(newTask);
 
-        let newTask;
+        displayTask(newTask);
 
     }
 
@@ -125,7 +133,7 @@ const display = (function displayContent() {
         displayProject,
         displayTask,
         addNewProjectToScreen,
-        addNewTaskToScreen
+        addNewTaskToScreen,
 
     }
 

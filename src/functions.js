@@ -12,6 +12,10 @@ const projectDependencies = (function() {
 
 const projManager = (function ProjectManager() {
 
+    // let currentProject = projManager.getProject("Default");
+
+    // const getCurrentProject = () => currentProject;
+
 
     const createProject = (name) => {
         let newProject = new Project(name);
@@ -48,13 +52,6 @@ const projManager = (function ProjectManager() {
         projectDependencies.projects.forEach(project => console.log(project.name));
     }
 
-    const showProjectTasksNames = (projectName) => {
-
-        //getProject(projectName).taskList.forEach(task => console.log(task.name))
-
-        
-    }
-
     const showProjectTaskList = (projectName) => {
         console.log(getProject(projectName).taskList);
     }
@@ -67,7 +64,7 @@ const projManager = (function ProjectManager() {
         showProjects,
         showProjectsNames,
         showProjectTaskList,
-        showProjectTasksNames
+        //getCurrentProject,
     }
 
 })();

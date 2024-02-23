@@ -10,10 +10,8 @@ display.createNewTaskButton();
 
 //CREATING PLACEHOLDER PROJECTS FOR VISUALS & PRACTICE
 projManager.createProject("Groceries for Feb");
+projManager.createProject("Fishing Trip");
 
-projectDependencies.projects.forEach(project => console.log(project));
-
-console.log("create and add task");
 projectDependencies.projects[1].createTask(
     "Get Bread",
     "Sourdough for Grilled Cheesies",
@@ -26,38 +24,33 @@ projectDependencies.projects[1].createTask(
     "2/22/24",
     "Medium"
 )
+projManager.getProject("Groceries for Feb")
+            .createTask("Buy Turmeric", 
+                        "Need this for tea", 
+                        "3/1/24", 
+                        "high");
 
-projManager.createProject("Fishing");
+projManager.getProject("Fishing Trip")
+            .createTask("Bait Time",
+                        "Get Worms & Nightcrawlers",
+                        "2/25/24",
+                        "Low");
 
-projManager.getProject("Fishing").createTask("Bait Time",
-"Get Worms & Nightcrawlers",
-"2/25/24",
-"Low");
+projManager.getProject("Fishing Trip")
+            .createTask("Buy Clothes",
+                        "Get Waders",
+                        "2/29/24",
+                        "high");
 
-projManager.changeProjectName("Fishing", "Fishing Trip");
+projManager.getProject("Fishing Trip")
+            .editTask("Buy Clothes", 
+                        "Go to Dick's Sporting Goods",
+                        "Get some Water Pants",
+                        "2/28/24",
+                        "med");
 
-projManager.getProject("Fishing Trip").createTask("Buy Clothes",
-"Get Waders",
-"2/29/24",
-"high");
 
-projManager.getProject("Fishing Trip").editTask("Buy Clothes", 
-"Go to Dick's Sporting Goods",
-"Get some Water Pants",
-"2/28/24",
-"med");
 
-projManager.showProjects();
-
-projManager.showProjectTaskList("Groceries for Feb");
-
-projManager.getProject("Groceries for Feb").createTask("Buy Turmeric", "Need this for tea", "3/1/24", "high");
-
-projManager.showProjectTaskList("Groceries for Feb");
-projManager.showProjectTasksNames("Groceries for Feb");
-
-projManager.showProjects();
-projManager.showProjectsNames();
 
 
 
@@ -73,23 +66,19 @@ const projectBtns = document.querySelectorAll(".project-button");
 const taskListDiv = document.querySelector('.task-list-div');
 const newProjectButton = document.querySelector("new-proj-button");
 
-projectBtns.forEach(button => {
-
-    button.addEventListener('click', (e) => { 
-        e.preventDefault();
-        projManager.showProjectTaskList(projManager.getProject(button.textContent).name)
-    });
-
-})
 
 projectBtns.forEach(button => {
 
     button.addEventListener('click', (e) => { 
         e.preventDefault();
         taskListDiv.replaceChildren();
+        //currentProject = projManager.getProject(button.textContent);
         projManager.getProject(button.textContent).taskList.forEach((task) => {
             display.displayTask(task);
         })
+        projManager.showProjectTaskList(projManager.getProject(button.textContent).name)
+        console.log(projectBtns);
+        //console.log(currentProject);
     });
 
 })
@@ -101,11 +90,13 @@ projectSubmitBtn.addEventListener('click', (e) => {
     ManageModals().closeModal();
 })
 
+
 //UNCOMMENT ONCE addNewTaskToScreen(); IS FINISHED
 // const taskSubmitBtn = document.querySelector('#task-sub-btn');
 // taskSubmitBtn.addEventListener('click', (e) => {
 //     e.preventDefault();
-//     display.addNewTaskToScreen();
+//     //FIGURING OUT HOW AND WHERE TO DEFINE CURRENTPROJECT
+//     display.addNewTaskToScreen(currentProject);
 //     ManageModals().closeModal();
 // })
 
