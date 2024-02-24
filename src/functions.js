@@ -40,6 +40,8 @@ const projManager = (function ProjectManager() {
         } else {
             alert("Can't remove Default Project");
         }
+
+        return projectDependencies.projects;
     }
 
     const showProjects = () => {

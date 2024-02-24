@@ -2,6 +2,7 @@ class Project {
     constructor(name) {
         this.name = name;
         this.taskList = [];
+        this.id = Math.random().toString().split(".").join("");
     }
 
     addTask(task) {

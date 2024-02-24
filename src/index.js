@@ -71,28 +71,13 @@ projectDependencies.projects.forEach((project) => {
     display.createProjectButton(project);
 })
 
+for (let i=1; i<projectDependencies.projects.length; i++) {
+    display.createDeleteButton(projectDependencies.projects[i])
+}
+
+
+
 //Event Listeners for Project Buttons
-const projectBtns = document.getElementsByName("proj-button");
-const taskListDiv = document.querySelector('.task-list-div');
-const newProjectButton = document.querySelector("new-proj-button");
-
-
-// projectBtns.forEach(button => {
-
-//     button.addEventListener('click', (e) => { 
-//         e.preventDefault();
-//         taskListDiv.replaceChildren();
-//         projectDependencies.currentProject = projManager.getProject(button.textContent);
-//         projManager.getProject(button.textContent).taskList.forEach((task) => {
-//             display.displayTask(task);
-//         })
-//         projManager.showProjectTaskList(projManager.getProject(button.textContent).name)
-//         console.log(projectBtns);
-//         console.log(button);
-//         console.log(projectDependencies.currentProject);
-//     });
-
-// })
 
 const projectSubmitBtn = document.querySelector('#proj-sub-btn');
 projectSubmitBtn.addEventListener('click', (e) => {

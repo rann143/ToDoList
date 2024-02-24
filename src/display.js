@@ -64,12 +64,15 @@ const display = (function displayContent() {
 
 
     const createProjectButton = (project) => {
-
+            //new
+            const projectBtnDiv = document.createElement('div');
             const projectBtn = document.createElement('button');
             
             projectBtn.textContent = project.name;
             projectBtn.classList.add("project-button");
             projectBtn.setAttribute('name', "proj-button");
+            //new
+            projectBtnDiv.setAttribute('data-btnid', project.id);
 
             projectBtn.addEventListener('click', (e) => { 
                 e.preventDefault();
@@ -82,23 +85,57 @@ const display = (function displayContent() {
                 projManager.getProject(projectBtn.textContent).taskList.forEach((task) => {
                     display.displayTask(task);
                 })
-                
+
                 projManager.showProjectTaskList(projManager.getProject(projectBtn.textContent).name)
                 console.log(projectBtn);
                 console.log(projectDependencies.currentProject);
             });
+            //new
+            projectBtnDiv.appendChild(projectBtn)
 
-            projectListDiv.appendChild(projectBtn);
+            projectListDiv.appendChild(projectBtnDiv);
 
     };
 
+    const createDeleteButton = (project) => {
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = `delete ${project.name}`;
+        //new (div in queryselector)
+        const associatedProjectDiv = document.querySelector(`div[data-btnid='${project.id}']`);
+        
+
+        deleteBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log("clicked");
+            console.log(project.name);
+            console.log(projectDependencies.projects);
+            
+            projectDependencies.currentProject = projectDependencies.projects[0];
+            taskListTitle.textContent = projectDependencies.currentProject.name;
+            taskListDiv.replaceChildren();
+            projManager.getProject(projectDependencies.currentProject.name).taskList.forEach((task) => {
+                display.displayTask(task);
+            })
+
+            projManager.deleteProject(project.name);
+            associatedProjectDiv.remove();
+            console.log(projectDependencies.projects);
+            deleteBtn.remove();
+        } );
+
+        associatedProjectDiv.appendChild(deleteBtn);
+
+    }
+
     const projectTitleInput = document.querySelector('#proj-title-input');
     const addNewProjectToScreen = () => {
+        // in this "if" statement, need to add && if there is already a project with a name === projectTitleInput.value
         if (projectTitleInput.value !== "") {
             let projectName = projectTitleInput.value
             projectTitleInput.value = "";
             let newProject = projManager.createProject(projectName);
             createProjectButton(newProject);
+            createDeleteButton(newProject);
             projManager.showProjects();
         } else return;
     }
@@ -154,6 +191,7 @@ const display = (function displayContent() {
         displayTask,
         addNewProjectToScreen,
         addNewTaskToScreen,
+        createDeleteButton,
 
     }
 
