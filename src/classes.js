@@ -37,6 +37,7 @@ class Task {
         this.date = date;
         this.priority = priority;
         this.complete = false;
+        this.id = Math.random().toString().split(".").join("");
     }
 
 }

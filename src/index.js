@@ -72,7 +72,7 @@ projectDependencies.projects.forEach((project) => {
 })
 
 for (let i=1; i<projectDependencies.projects.length; i++) {
-    display.createDeleteButton(projectDependencies.projects[i])
+    display.createProjectDeleteButton(projectDependencies.projects[i])
 }
 
 

@@ -83,7 +83,8 @@ const display = (function displayContent() {
                 taskListTitle.textContent = projectDependencies.currentProject.name;
 
                 projManager.getProject(projectBtn.textContent).taskList.forEach((task) => {
-                    display.displayTask(task);
+                    createTaskDiv(task);
+                    createTaskDeleteButton(task);
                 })
 
                 projManager.showProjectTaskList(projManager.getProject(projectBtn.textContent).name)
@@ -97,7 +98,7 @@ const display = (function displayContent() {
 
     };
 
-    const createDeleteButton = (project) => {
+    const createProjectDeleteButton = (project) => {
         const deleteBtn = document.createElement('button');
         deleteBtn.textContent = `delete ${project.name}`;
         //new (div in queryselector)
@@ -127,6 +128,26 @@ const display = (function displayContent() {
 
     }
 
+    const createTaskDeleteButton = (task) => {
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = `delete ${task.name}`;
+
+        const associatedTaskDiv = document.querySelector(`div[data-taskid='${task.id}']`);
+
+        deleteBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log("clicked");
+            console.log(task.name);
+            
+
+            projectDependencies.currentProject.deleteTask(task.name);
+            associatedTaskDiv.remove();
+            deleteBtn.remove();
+        } );
+
+        associatedTaskDiv.appendChild(deleteBtn);
+    }
+
     const projectTitleInput = document.querySelector('#proj-title-input');
     const addNewProjectToScreen = () => {
         // in this "if" statement, need to add && if there is already a project with a name === projectTitleInput.value
@@ -135,7 +156,7 @@ const display = (function displayContent() {
             projectTitleInput.value = "";
             let newProject = projManager.createProject(projectName);
             createProjectButton(newProject);
-            createDeleteButton(newProject);
+            createProjectDeleteButton(newProject);
             projManager.showProjects();
         } else return;
     }
@@ -144,16 +165,17 @@ const display = (function displayContent() {
     // ******************************************************************
 
 
-    const displayTask = (task) => {
+    const createTaskDiv = (task) => {
 
             const taskDiv = document.createElement('div');
+            taskDiv.setAttribute('data-taskid', task.id);
             taskDiv.classList.add('task-div');
             taskDiv.textContent = `${task.name} ${task.description} ${task.date} ${task.priority}`;
+            
             taskListDiv.appendChild(taskDiv);
 
     }
 
-    
 
     const taskTitleInput = document.querySelector('#task-title-input');
     const taskDescrInput = document.querySelector('#task-descr-input');
@@ -175,7 +197,8 @@ const display = (function displayContent() {
 
         projManager.getProject(project).addTask(newTask);
 
-        displayTask(newTask);
+        createTaskDiv(newTask);
+        createTaskDeleteButton(newTask);
 
     }
 
@@ -188,10 +211,11 @@ const display = (function displayContent() {
         createNewProjectButton,
         createNewTaskButton,
         createProjectButton,
-        displayTask,
+        createTaskDiv,
         addNewProjectToScreen,
         addNewTaskToScreen,
-        createDeleteButton,
+        createProjectDeleteButton,
+        createTaskDeleteButton
 
     }
 
