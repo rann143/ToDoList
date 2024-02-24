@@ -104,7 +104,7 @@ const display = (function displayContent() {
     const taskDescrInput = document.querySelector('#task-descr-input');
     const taskDateInput = document.querySelector('#task-date-input');
     const taskPriorityInput = document.querySelector('#task-priority-input');
-    const addNewTaskToScreen = () => { 
+    const addNewTaskToScreen = (project) => { 
         let taskName = taskTitleInput.value;
         let taskDescr = taskDescrInput.value;
         let taskDate = taskDateInput.value;
@@ -115,8 +115,10 @@ const display = (function displayContent() {
         taskDateInput.value = "";
         taskPriorityInput.value = "";
         //FIGURING OUT HOW AND WHERE TO DEFINE CURRENTPROJECT
-        let newTask = projManager.getProject(currentProject.name).createTask(taskName, taskDescr, taskDate, taskPriority);
+        let newTask = projManager.getProject(project).createTask(taskName, taskDescr, taskDate, taskPriority);
         console.log(newTask);
+
+        projManager.getProject(project).addTask(newTask);
 
         displayTask(newTask);
 

@@ -10,12 +10,13 @@ class Project {
 
     createTask(name, description, date, priority) {
         let task = new Task(name, description, date, priority);
-        this.taskList.push(task); 
+        return task;
+        //this.taskList.push(task); 
     }
 
     editTask(taskName, newName, newDescription, newDate, newPriority){
         this.deleteTask(taskName);
-        this.createTask(newName, newDescription, newDate, newPriority);
+        this.addTask(this.createTask(newName, newDescription, newDate, newPriority));
     }
 
     deleteTask(thisTask) {

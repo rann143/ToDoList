@@ -18,29 +18,39 @@ projectDependencies.projects[1].createTask(
     "2/22/24",
     "Medium"
 )
-projectDependencies.projects[1].createTask(
-    "Get Milk",
-    "Whole Milk for Tomato Soup",
-    "2/22/24",
-    "Medium"
-)
-projManager.getProject("Groceries for Feb")
-            .createTask("Buy Turmeric", 
+projectDependencies.projects[1].addTask(
+
+    projectDependencies.projects[1].createTask(
+            "Get Milk",
+            "Whole Milk for Tomato Soup",
+            "2/22/24",
+            "Medium")
+
+);
+projManager.getProject("Groceries for Feb").addTask(
+
+    projManager.getProject("Groceries for Feb").createTask("Buy Turmeric", 
                         "Need this for tea", 
                         "3/1/24", 
-                        "high");
+                        "high")
+                        
+                        );
 
-projManager.getProject("Fishing Trip")
-            .createTask("Bait Time",
+projManager.getProject("Fishing Trip").addTask(
+
+    projManager.getProject("Fishing Trip").createTask("Bait Time",
                         "Get Worms & Nightcrawlers",
                         "2/25/24",
-                        "Low");
+                        "Low")
+            );
 
-projManager.getProject("Fishing Trip")
-            .createTask("Buy Clothes",
+projManager.getProject("Fishing Trip").addTask(
+            
+    projManager.getProject("Fishing Trip").createTask("Buy Clothes",
                         "Get Waders",
                         "2/29/24",
-                        "high");
+                        "high")
+            );
 
 projManager.getProject("Fishing Trip")
             .editTask("Buy Clothes", 
@@ -72,13 +82,13 @@ projectBtns.forEach(button => {
     button.addEventListener('click', (e) => { 
         e.preventDefault();
         taskListDiv.replaceChildren();
-        //currentProject = projManager.getProject(button.textContent);
+        projectDependencies.currentProject = projManager.getProject(button.textContent);
         projManager.getProject(button.textContent).taskList.forEach((task) => {
             display.displayTask(task);
         })
         projManager.showProjectTaskList(projManager.getProject(button.textContent).name)
         console.log(projectBtns);
-        //console.log(currentProject);
+        console.log(projectDependencies.currentProject);
     });
 
 })
@@ -92,12 +102,13 @@ projectSubmitBtn.addEventListener('click', (e) => {
 
 
 //UNCOMMENT ONCE addNewTaskToScreen(); IS FINISHED
-// const taskSubmitBtn = document.querySelector('#task-sub-btn');
-// taskSubmitBtn.addEventListener('click', (e) => {
-//     e.preventDefault();
-//     //FIGURING OUT HOW AND WHERE TO DEFINE CURRENTPROJECT
-//     display.addNewTaskToScreen(currentProject);
-//     ManageModals().closeModal();
-// })
+const taskSubmitBtn = document.querySelector('#task-sub-btn');
+taskSubmitBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    //FIGURING OUT HOW AND WHERE TO DEFINE CURRENTPROJECT
+    console.log(projectDependencies.currentProject.name);
+    display.addNewTaskToScreen(projectDependencies.currentProject.name);
+    ManageModals().closeModal();
+})
 
 

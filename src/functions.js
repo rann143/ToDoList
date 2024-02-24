@@ -3,18 +3,16 @@ import {Project, Task} from "./classes.js";
 const projectDependencies = (function() {
     const defaultProject = new Project("Default");
     const projects = [defaultProject];
+    let currentProject = projects[0];
 
     return {
         defaultProject,
         projects,
+        currentProject
     }
 })();
 
 const projManager = (function ProjectManager() {
-
-    // let currentProject = projManager.getProject("Default");
-
-    // const getCurrentProject = () => currentProject;
 
 
     const createProject = (name) => {
