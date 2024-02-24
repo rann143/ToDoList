@@ -41,7 +41,6 @@ const display = (function displayContent() {
         button.addEventListener('click', modalManager.closeModal);
     })
 
-
     const createNewProjectButton = () => {
 
         const newProjectButton = document.createElement('button');
@@ -160,10 +159,6 @@ const display = (function displayContent() {
             projManager.showProjects();
         } else return;
     }
-    // ******************************************************************
-    // ^NEW PROJECT BUTTONS ARE NOT BEING ADDED TO THE projBtns NODELIST IN index.js
-    // ******************************************************************
-
 
     const createTaskDiv = (task) => {
 

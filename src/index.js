@@ -52,21 +52,13 @@ projManager.getProject("Fishing Trip").addTask(
                         "high")
             );
 
-projManager.getProject("Fishing Trip")
-            .editTask("Buy Clothes", 
+projManager.getProject("Fishing Trip").editTask("Buy Clothes", 
                         "Go to Dick's Sporting Goods",
                         "Get some Water Pants",
                         "2/28/24",
                         "med");
 
-
-
-
-
-
-
-//DISPLAYING BELOW
-
+//DISPLAYING Pre-made Projects
 projectDependencies.projects.forEach((project) => {
     display.createProjectButton(project);
 })
@@ -75,18 +67,13 @@ for (let i=1; i<projectDependencies.projects.length; i++) {
     display.createProjectDeleteButton(projectDependencies.projects[i])
 }
 
-
-
-//Event Listeners for Project Buttons
-
+//Event Listeners for Modal Submit Buttons
 const projectSubmitBtn = document.querySelector('#proj-sub-btn');
 projectSubmitBtn.addEventListener('click', (e) => {
     e.preventDefault();
     display.addNewProjectToScreen();
     ManageModals().closeModal();
 })
-
-
 
 const taskSubmitBtn = document.querySelector('#task-sub-btn');
 taskSubmitBtn.addEventListener('click', (e) => {
