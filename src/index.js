@@ -68,30 +68,31 @@ projManager.getProject("Fishing Trip")
 //DISPLAYING BELOW
 
 projectDependencies.projects.forEach((project) => {
-    display.displayProject(project);
+    display.createProjectButton(project);
 })
 
 //Event Listeners for Project Buttons
-const projectBtns = document.querySelectorAll(".project-button");
+const projectBtns = document.getElementsByName("proj-button");
 const taskListDiv = document.querySelector('.task-list-div');
 const newProjectButton = document.querySelector("new-proj-button");
 
 
-projectBtns.forEach(button => {
+// projectBtns.forEach(button => {
 
-    button.addEventListener('click', (e) => { 
-        e.preventDefault();
-        taskListDiv.replaceChildren();
-        projectDependencies.currentProject = projManager.getProject(button.textContent);
-        projManager.getProject(button.textContent).taskList.forEach((task) => {
-            display.displayTask(task);
-        })
-        projManager.showProjectTaskList(projManager.getProject(button.textContent).name)
-        console.log(projectBtns);
-        console.log(projectDependencies.currentProject);
-    });
+//     button.addEventListener('click', (e) => { 
+//         e.preventDefault();
+//         taskListDiv.replaceChildren();
+//         projectDependencies.currentProject = projManager.getProject(button.textContent);
+//         projManager.getProject(button.textContent).taskList.forEach((task) => {
+//             display.displayTask(task);
+//         })
+//         projManager.showProjectTaskList(projManager.getProject(button.textContent).name)
+//         console.log(projectBtns);
+//         console.log(button);
+//         console.log(projectDependencies.currentProject);
+//     });
 
-})
+// })
 
 const projectSubmitBtn = document.querySelector('#proj-sub-btn');
 projectSubmitBtn.addEventListener('click', (e) => {
@@ -101,11 +102,10 @@ projectSubmitBtn.addEventListener('click', (e) => {
 })
 
 
-//UNCOMMENT ONCE addNewTaskToScreen(); IS FINISHED
+
 const taskSubmitBtn = document.querySelector('#task-sub-btn');
 taskSubmitBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    //FIGURING OUT HOW AND WHERE TO DEFINE CURRENTPROJECT
     console.log(projectDependencies.currentProject.name);
     display.addNewTaskToScreen(projectDependencies.currentProject.name);
     ManageModals().closeModal();

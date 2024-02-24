@@ -62,7 +62,6 @@ const projManager = (function ProjectManager() {
         showProjects,
         showProjectsNames,
         showProjectTaskList,
-        //getCurrentProject,
     }
 
 })();

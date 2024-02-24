@@ -23,7 +23,7 @@ const display = (function displayContent() {
     
     //Add title to Task Container
     const taskListTitle = document.createElement('h2');
-    taskListTitle.textContent = "Tasks";
+    taskListTitle.textContent = projectDependencies.currentProject.name;
     taskListTitle.classList.add('task-list-title');
     taskContainer.appendChild(taskListTitle);
 
@@ -63,12 +63,30 @@ const display = (function displayContent() {
     }
 
 
-    const displayProject = (project) => {
+    const createProjectButton = (project) => {
 
             const projectBtn = document.createElement('button');
             
             projectBtn.textContent = project.name;
             projectBtn.classList.add("project-button");
+            projectBtn.setAttribute('name', "proj-button");
+
+            projectBtn.addEventListener('click', (e) => { 
+                e.preventDefault();
+                taskListDiv.replaceChildren();
+
+                projectDependencies.currentProject = projManager.getProject(projectBtn.textContent);
+        
+                taskListTitle.textContent = projectDependencies.currentProject.name;
+
+                projManager.getProject(projectBtn.textContent).taskList.forEach((task) => {
+                    display.displayTask(task);
+                })
+                
+                projManager.showProjectTaskList(projManager.getProject(projectBtn.textContent).name)
+                console.log(projectBtn);
+                console.log(projectDependencies.currentProject);
+            });
 
             projectListDiv.appendChild(projectBtn);
 
@@ -80,7 +98,7 @@ const display = (function displayContent() {
             let projectName = projectTitleInput.value
             projectTitleInput.value = "";
             let newProject = projManager.createProject(projectName);
-            displayProject(newProject);
+            createProjectButton(newProject);
             projManager.showProjects();
         } else return;
     }
@@ -114,7 +132,7 @@ const display = (function displayContent() {
         taskDescrInput.value = "";
         taskDateInput.value = "";
         taskPriorityInput.value = "";
-        //FIGURING OUT HOW AND WHERE TO DEFINE CURRENTPROJECT
+        
         let newTask = projManager.getProject(project).createTask(taskName, taskDescr, taskDate, taskPriority);
         console.log(newTask);
 
@@ -132,7 +150,7 @@ const display = (function displayContent() {
         
         createNewProjectButton,
         createNewTaskButton,
-        displayProject,
+        createProjectButton,
         displayTask,
         addNewProjectToScreen,
         addNewTaskToScreen,
