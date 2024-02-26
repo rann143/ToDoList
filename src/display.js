@@ -2,6 +2,8 @@ import "./style.css";
 import { Project, Task } from "./classes.js";
 import { projectDependencies, projManager } from "./functions.js";
 import { ManageModals } from "./modals.js";
+import { saveToStorage } from "./storage.js";
+import trashCanSvg from '/src/img/trash-can-outline.svg';
 
 const display = (function displayContent() {
 
@@ -65,6 +67,7 @@ const display = (function displayContent() {
     const createProjectButton = (project) => {
             //new
             const projectBtnDiv = document.createElement('div');
+            projectBtnDiv.classList.add("project-button-div");
             const projectBtn = document.createElement('button');
             
             projectBtn.textContent = project.name;
@@ -99,7 +102,9 @@ const display = (function displayContent() {
 
     const createProjectDeleteButton = (project) => {
         const deleteBtn = document.createElement('button');
-        deleteBtn.textContent = `delete ${project.name}`;
+        deleteBtn.classList.add("delete-btn");
+        deleteBtn.style.backgroundImage = "url('/src/img/trash-can-outline.svg')";
+        
         //new (div in queryselector)
         const associatedProjectDiv = document.querySelector(`div[data-btnid='${project.id}']`);
         
@@ -112,15 +117,18 @@ const display = (function displayContent() {
             
             projectDependencies.currentProject = projectDependencies.projects[0];
             taskListTitle.textContent = projectDependencies.currentProject.name;
+
             taskListDiv.replaceChildren();
             projManager.getProject(projectDependencies.currentProject.name).taskList.forEach((task) => {
-                display.displayTask(task);
+                createTaskDiv(task);
+                createTaskDeleteButton(task);
             })
 
             projManager.deleteProject(project.name);
             associatedProjectDiv.remove();
             console.log(projectDependencies.projects);
             deleteBtn.remove();
+            saveToStorage();
         } );
 
         associatedProjectDiv.appendChild(deleteBtn);
@@ -129,7 +137,8 @@ const display = (function displayContent() {
 
     const createTaskDeleteButton = (task) => {
         const deleteBtn = document.createElement('button');
-        deleteBtn.textContent = `delete ${task.name}`;
+        deleteBtn.classList.add("delete-btn");
+        deleteBtn.style.backgroundImage = "url('/src/img/trash-can-outline.svg')";
 
         const associatedTaskDiv = document.querySelector(`div[data-taskid='${task.id}']`);
 
@@ -142,6 +151,7 @@ const display = (function displayContent() {
             projectDependencies.currentProject.deleteTask(task.name);
             associatedTaskDiv.remove();
             deleteBtn.remove();
+            saveToStorage();
         } );
 
         associatedTaskDiv.appendChild(deleteBtn);
@@ -156,6 +166,7 @@ const display = (function displayContent() {
             let newProject = projManager.createProject(projectName);
             createProjectButton(newProject);
             createProjectDeleteButton(newProject);
+            saveToStorage();
             projManager.showProjects();
         } else return;
     }
@@ -191,9 +202,12 @@ const display = (function displayContent() {
         console.log(newTask);
 
         projManager.getProject(project).addTask(newTask);
+       
 
         createTaskDiv(newTask);
         createTaskDeleteButton(newTask);
+        saveToStorage();
+        
 
     }
 

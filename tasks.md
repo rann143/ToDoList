@@ -1,6 +1,10 @@
 To Do:
 
-- Add delete buttons for Projects & Tasks
-- Add local storage capabilities
 - Add ability to edit Project Names & edit Tasks
-- Fix bug: make it so you can add mulitiple projects of the same name
+- Add a 'completed' checkbox
+- Style Task displays
+- Style delete buttons for Projects & Tasks
+
+BUGS:
+- Methods need to be re-added to objects loaded from JSON
+- Make it so you can add mulitiple projects of the same name

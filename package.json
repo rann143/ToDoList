@@ -12,6 +12,7 @@
   "devDependencies": {
     "css-loader": "^6.10.0",
     "style-loader": "^3.3.4",
+    "svg-inline-loader": "^0.8.2",
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {

@@ -33,6 +33,7 @@ h1 {
     justify-content: flex-start;
     align-items: flex-start;
     padding-left: 20px;
+    padding-right: 20px;
     padding-bottom: 20px;
     border-radius: 5px;
     background-color: rgb(196, 248, 255);
@@ -80,6 +81,9 @@ h1 {
     border-radius: 5px;
     background-color: rgb(55, 236, 176);
     padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .project-button {
@@ -91,6 +95,8 @@ h1 {
     background-color: rgb(255, 207, 188);
     box-shadow: 2px 2px 5px rgba(163, 163, 163, 0.363);
     text-align: start;
+    font-weight: 600;
+    
 }
 
 .todo-button {
@@ -148,8 +154,23 @@ h1 {
 button {
     cursor: pointer;
     border: none;
-    font-weight: 600;
+    font-weight: 700;
   }
+
+.project-button-div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.delete-btn {
+    background-color: #ffffff00;
+    width: 1rem;
+    height: 1rem;
+    margin: 5px;
+    justify-self: flex-end;
+}
 
 /* FOR MODALS */
 

@@ -1,4 +1,5 @@
 import {Project, Task} from "./classes.js";
+import { saveToStorage } from "./storage.js";
 
 const projectDependencies = (function() {
     const defaultProject = new Project("Default");
@@ -18,6 +19,7 @@ const projManager = (function ProjectManager() {
     const createProject = (name) => {
         let newProject = new Project(name);
         projectDependencies.projects.push(newProject);
+        saveToStorage();
         return newProject;
     }
 
