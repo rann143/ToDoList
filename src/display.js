@@ -212,7 +212,7 @@ const display = (function displayContent() {
             const completedBox = document.createElement('input');
             const completedLabel = document.createElement('label');
             
-            completedLabel.textContent = "Completed:";
+            completedLabel.textContent = "Complete";
             completedLabel.style.fontWeight = "400";
             completedLabel.style.fontSize = "small";
             completedLabel.setAttribute('for', completedID);
@@ -220,14 +220,10 @@ const display = (function displayContent() {
             completedBox.classList.add('completed-box');
             completedBox.setAttribute('id', completedID);
             completedBox.type = "checkbox";
-
-            if (completedBox.value == true) {
-                task.complete = true;
-                console.log(task.complete);
-            }
             
-            completedDiv.appendChild(completedLabel);
+            
             completedDiv.appendChild(completedBox);
+            completedDiv.appendChild(completedLabel);
 
             taskDiv.appendChild(completedDiv);
             
