@@ -2,7 +2,6 @@ body {
     display: flex;
     flex-direction: column;
     background-image: url('/src/img/lysann-weber-NSqSneOFXYA-unsplash.jpg');
-    background-position: center;
     background-size: cover;
     padding-left: 250px;
     padding-right: 250px;
