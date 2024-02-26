@@ -1,6 +1,9 @@
 body {
     display: flex;
     flex-direction: column;
+    background-image: url('/src/img/lysann-weber-NSqSneOFXYA-unsplash.jpg');
+    background-position: center;
+    background-size: cover;
     padding-left: 250px;
     padding-right: 250px;
 }
@@ -16,12 +19,29 @@ h1 {
     display: flex;
     justify-content: center;
     min-width: 260px;
+    color: whitesmoke;
+    background-color: rgba(22, 22, 22, 0.52);
+    backdrop-filter: blur(3px);
+    border-radius: 10px;
+    padding: 5px 30px 5px 30px;
 }
 
 h2 {
     margin: 0;
     padding: 0;
     display: inline-block;
+}
+
+#background-photo-credit {
+    position: absolute;
+    margin-left: 10px;
+    bottom: 0;
+    left: 0;
+}
+
+a {
+    color: rgb(199, 199, 199);
+    text-decoration: none;
 }
 
 #container {
@@ -40,7 +60,8 @@ h2 {
     align-items: flex-start;
     padding: 20px;
     border-radius: 5px;
-    background-color: rgb(196, 248, 255);
+    background-color: rgba(196, 248, 255, 0.6);
+    backdrop-filter: blur(3px);
 }
 
 .task-container {
@@ -48,7 +69,8 @@ h2 {
     display: grid;
     grid-template-rows: 50px 1fr;
     grid-template-columns: 1fr 1fr;
-    background-color: rgb(252, 241, 226);
+    background-color: rgba(252, 241, 226, 0.6);
+    backdrop-filter: blur(3px);
     border-radius: 5px;
     padding-bottom: 20px;
 }
