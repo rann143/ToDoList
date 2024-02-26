@@ -192,7 +192,7 @@ const display = (function displayContent() {
                 const dateContainer = document.createElement('div');
                 dateContainer.style.marginBottom = "10px";
                 dateContainer.style.fontWeight = "600";
-                dateContainer.style.color = "gray";
+                dateContainer.style.color = "rgb(100, 100, 100)";
                 dateContainer.textContent = `Due: ${task.date}`;
                 taskDiv.appendChild(dateContainer);
             }
@@ -201,7 +201,7 @@ const display = (function displayContent() {
                 const priorityContainer = document.createElement('div');
                 priorityContainer.textContent = `Priority: ${task.priority}`;
                 priorityContainer.style.fontWeight = "600";
-                priorityContainer.style.color = "gray";
+                priorityContainer.style.color = "rgb(100, 100, 100)";
                 taskDiv.appendChild(priorityContainer);
             }
 
