@@ -205,6 +205,33 @@ const display = (function displayContent() {
                 taskDiv.appendChild(priorityContainer);
             }
 
+            const completedDiv = document.createElement('div');
+            completedDiv.classList.add('completed-div');
+
+            const completedID = Math.random().toString().split(".").join("");
+            const completedBox = document.createElement('input');
+            const completedLabel = document.createElement('label');
+            
+            completedLabel.textContent = "Completed:";
+            completedLabel.style.fontWeight = "400";
+            completedLabel.style.fontSize = "small";
+            completedLabel.setAttribute('for', completedID);
+            
+            completedBox.classList.add('completed-box');
+            completedBox.setAttribute('id', completedID);
+            completedBox.type = "checkbox";
+
+            if (completedBox.value == true) {
+                task.complete = true;
+                console.log(task.complete);
+            }
+            
+            completedDiv.appendChild(completedLabel);
+            completedDiv.appendChild(completedBox);
+
+            taskDiv.appendChild(completedDiv);
+            
+
             //taskDiv.textContent = `${task.name} ${task.description} ${task.date} ${task.priority}`;
             
             taskListDiv.appendChild(taskDiv);
