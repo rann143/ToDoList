@@ -180,11 +180,30 @@ const display = (function displayContent() {
             const title = document.createElement('h2');
             title.textContent = `${task.name}`;
 
-            const descriptionParagraph = document.createElement('p');
-            descriptionParagraph.textContent = `${task.description}`;
-
             taskDiv.appendChild(title);
-            taskDiv.appendChild(descriptionParagraph);
+
+            if (task.description !== "") {
+                const descriptionParagraph = document.createElement('p');
+                descriptionParagraph.textContent = `${task.description}`;
+                taskDiv.appendChild(descriptionParagraph);
+            }
+
+            if (task.date !== "") {
+                const dateContainer = document.createElement('div');
+                dateContainer.style.marginBottom = "10px";
+                dateContainer.style.fontWeight = "600";
+                dateContainer.style.color = "gray";
+                dateContainer.textContent = `Due: ${task.date}`;
+                taskDiv.appendChild(dateContainer);
+            }
+
+            if (task.priority !== ""){
+                const priorityContainer = document.createElement('div');
+                priorityContainer.textContent = `Priority: ${task.priority}`;
+                priorityContainer.style.fontWeight = "600";
+                priorityContainer.style.color = "gray";
+                taskDiv.appendChild(priorityContainer);
+            }
 
             //taskDiv.textContent = `${task.name} ${task.description} ${task.date} ${task.priority}`;
             
