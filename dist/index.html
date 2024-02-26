@@ -40,11 +40,18 @@
                     </div>
                     <div class="form-inputs">
                         <label for="task-date-input">Due Date:</label>
-                        <input type="text" id="task-date-input" name="task-date">
+                        <input type="date" id="task-date-input" name="task-date">
                     </div>
                     <div class="form-inputs">
                         <label for="task-priority-input">Priority:</label>
-                        <input type="text" id="task-priority-input" name="task-priority">
+                        <select name="task-priority" id="task-priority-input">
+                            <option value="">--Choose Priority Level--</option>
+                            <option value="Low">Low</option>
+                            <option value="Med">Med</option>
+                            <option value="High">High</option>
+                            <option value="Very High">Very High</option>
+                        </select>
+                        <!-- <input type="text" id="task-priority-input" name="task-priority"> -->
                     </div>
                     <button class="btn" id="task-sub-btn">Submit</button>
                 </form>

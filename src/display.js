@@ -176,7 +176,17 @@ const display = (function displayContent() {
             const taskDiv = document.createElement('div');
             taskDiv.setAttribute('data-taskid', task.id);
             taskDiv.classList.add('task-div');
-            taskDiv.textContent = `${task.name} ${task.description} ${task.date} ${task.priority}`;
+
+            const title = document.createElement('h2');
+            title.textContent = `${task.name}`;
+
+            const descriptionParagraph = document.createElement('p');
+            descriptionParagraph.textContent = `${task.description}`;
+
+            taskDiv.appendChild(title);
+            taskDiv.appendChild(descriptionParagraph);
+
+            //taskDiv.textContent = `${task.name} ${task.description} ${task.date} ${task.priority}`;
             
             taskListDiv.appendChild(taskDiv);
 

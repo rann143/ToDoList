@@ -18,6 +18,12 @@ h1 {
     min-width: 260px;
 }
 
+h2 {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
 #container {
     display: grid;
     grid-template-columns: 200px minmax(300px, 1fr);
@@ -32,9 +38,7 @@ h1 {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
+    padding: 20px;
     border-radius: 5px;
     background-color: rgb(196, 248, 255);
 }
@@ -76,14 +80,18 @@ h1 {
     
 }
 
+
+
 .task-div {
     margin: 10px;
     border-radius: 5px;
     background-color: rgb(55, 236, 176);
-    padding: 5px;
+    padding: 10px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    align-content: space-between;
 }
 
 .project-button {
@@ -117,6 +125,7 @@ h1 {
     border: none;
     border-radius: 5px;
     padding: 5px;
+    margin-top: 20px;
     margin-bottom: 20px;
 }
 
@@ -169,7 +178,7 @@ button {
     width: 1rem;
     height: 1rem;
     margin: 5px;
-    justify-self: flex-end;
+    align-self: end;
 }
 
 /* FOR MODALS */

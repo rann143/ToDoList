@@ -66,7 +66,7 @@ projManager.getProject(projectDependencies.currentProject.name).taskList.forEach
 //                         "2/28/24",
 //                         "med");
 
-//DISPLAYING Pre-made Projects
+////DISPLAYING Pre-made Projects
 projectDependencies.projects.forEach((project) => {
     display.createProjectButton(project);
 })
