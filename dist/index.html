@@ -57,6 +57,37 @@
                 </form>
             </div>
 
+            <div class="modal edit-modal hidden">
+                <button type="button" class="btn-close">X</button>
+                <h2>Edit</h2>
+                <form action="" id="new-edit-form">
+                    <div class="form-inputs">
+                        <label for="edit-title-input">Title:</label>
+                        <input type="text" id="edit-title-input" name="edit-title">
+                    </div>
+                    <div class="form-inputs">
+                        <label for="edit-descr-input">Description:</label>
+                        <textarea type="text" id="edit-descr-input" name="edit-descr"></textarea>
+                    </div>
+                    <div class="form-inputs">
+                        <label for="edit-date-input">Due Date:</label>
+                        <input type="date" id="edit-date-input" name="edit-date">
+                    </div>
+                    <div class="form-inputs">
+                        <label for="edit-priority-input">Priority:</label>
+                        <select name="edit-priority" id="edit-priority-input">
+                            <option value="">--Choose Priority Level--</option>
+                            <option value="Low">Low</option>
+                            <option value="Med">Med</option>
+                            <option value="High">High</option>
+                            <option value="Very High">Very High</option>
+                        </select>
+                        <!-- <input type="text" id="task-priority-input" name="task-priority"> -->
+                    </div>
+                    <button class="btn" id="edit-sub-btn">Submit</button>
+                </form>
+            </div>
+
             
 
     </div>

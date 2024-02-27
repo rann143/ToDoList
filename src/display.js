@@ -34,6 +34,12 @@ const display = (function displayContent() {
     taskListDiv.classList.add('task-list-div');
     taskContainer.appendChild(taskListDiv);
 
+    //Task & Edit Modal Inputs
+    const taskTitleInput = document.querySelector('#task-title-input');
+    const taskDescrInput = document.querySelector('#task-descr-input');
+    const taskDateInput = document.querySelector('#task-date-input');
+    const taskPriorityInput = document.querySelector('#task-priority-input');
+
     //ManageModals
     const modalManager = ManageModals();
 
@@ -63,6 +69,7 @@ const display = (function displayContent() {
         taskContainer.appendChild(newTaskButton);
     }
 
+    
 
     const createProjectButton = (project) => {
             //new
@@ -226,19 +233,18 @@ const display = (function displayContent() {
             completedDiv.appendChild(completedLabel);
 
             taskDiv.appendChild(completedDiv);
-            
+            taskDiv.appendChild(createEditTaskButton());
 
             //taskDiv.textContent = `${task.name} ${task.description} ${task.date} ${task.priority}`;
             
             taskListDiv.appendChild(taskDiv);
+            
+            
 
     }
 
 
-    const taskTitleInput = document.querySelector('#task-title-input');
-    const taskDescrInput = document.querySelector('#task-descr-input');
-    const taskDateInput = document.querySelector('#task-date-input');
-    const taskPriorityInput = document.querySelector('#task-priority-input');
+    
     const addNewTaskToScreen = (project) => { 
         let taskName = taskTitleInput.value;
         let taskDescr = taskDescrInput.value;
@@ -258,10 +264,37 @@ const display = (function displayContent() {
 
         createTaskDiv(newTask);
         createTaskDeleteButton(newTask);
+        
         saveToStorage();
         
 
     }
+
+    const editTaskOnScreen = (task) => {
+
+        let taskName = taskTitleInput.value;
+        let taskDescr = taskDescrInput.value;
+        let taskDate = taskDateInput.value;
+        let taskPriority = taskPriorityInput.value;
+
+        taskTitleInput.value = "";
+        taskDescrInput.value = "";
+        taskDateInput.value = "";
+        taskPriorityInput.value = "";
+
+        // let editedTask = projManager.getProject(project).editTask(taskName, taskDescr, taskDate, taskPriority);
+        // console.log(editedTask);
+
+    }
+
+    const createEditTaskButton = () => {
+        const editTaskBtn = document.createElement('button');
+        editTaskBtn.classList.add('edit-task-btn');
+        editTaskBtn.textContent = "Edit";
+        editTaskBtn.addEventListener('click', modalManager.openEditModal);
+        return editTaskBtn;
+    }
+
 
     container.appendChild(projectListDiv);
     container.appendChild(taskContainer);
