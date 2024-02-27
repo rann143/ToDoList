@@ -32,7 +32,7 @@ h2 {
 }
 
 #background-photo-credit {
-    position: absolute;
+    position: fixed;
     margin-left: 10px;
     bottom: 0;
     left: 0;

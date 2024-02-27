@@ -10,10 +10,11 @@ loadInfoFromStorage();
 
 display.createNewProjectButton();
 display.createNewTaskButton();
-projManager.getProject(projectDependencies.currentProject.name).taskList.forEach((task) => {
-    display.createTaskDiv(task);
-    display.createTaskDeleteButton(task);
-})
+//display.createProjectButton(projectDependencies.projects[0]);
+// projManager.getProject("Default").taskList.forEach((task) => {
+//     display.createTaskDiv(task);
+//     display.createTaskDeleteButton(task);
+// })
 
 
 //CREATING PLACEHOLDER PROJECTS FOR VISUALS & PRACTICE
@@ -70,6 +71,10 @@ projManager.getProject(projectDependencies.currentProject.name).taskList.forEach
 projectDependencies.projects.forEach((project) => {
     display.createProjectButton(project);
 })
+
+// for (let i=1; i<projectDependencies.projects.length; i++) {
+//     display.createProjectButton(projectDependencies.projects[i])
+// }
 
 for (let i=1; i<projectDependencies.projects.length; i++) {
     display.createProjectDeleteButton(projectDependencies.projects[i])

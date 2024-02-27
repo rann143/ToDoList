@@ -39,6 +39,11 @@ const display = (function displayContent() {
     const taskDescrInput = document.querySelector('#task-descr-input');
     const taskDateInput = document.querySelector('#task-date-input');
     const taskPriorityInput = document.querySelector('#task-priority-input');
+    const editTitleInput = document.querySelector('#edit-title-input');
+    const editDescrInput = document.querySelector('#edit-descr-input');
+    const editDateInput = document.querySelector('#edit-date-input');
+    const editPriorityInput = document.querySelector('#edit-priority-input');
+
 
     //ManageModals
     const modalManager = ManageModals();
@@ -156,9 +161,10 @@ const display = (function displayContent() {
             
 
             projectDependencies.currentProject.deleteTask(task.name);
+            saveToStorage();
             associatedTaskDiv.remove();
             deleteBtn.remove();
-            saveToStorage();
+            
         } );
 
         associatedTaskDiv.appendChild(deleteBtn);
@@ -212,28 +218,31 @@ const display = (function displayContent() {
                 taskDiv.appendChild(priorityContainer);
             }
 
-            const completedDiv = document.createElement('div');
-            completedDiv.classList.add('completed-div');
+            //STILL WORKING ON THIS FUNCTIONALITY: UNCOMMENT TO RECONTINUE
+            // const completedDiv = document.createElement('div');
+            // completedDiv.classList.add('completed-div');
 
-            const completedID = Math.random().toString().split(".").join("");
-            const completedBox = document.createElement('input');
-            const completedLabel = document.createElement('label');
+            // const completedID = Math.random().toString().split(".").join("");
+            // const completedBox = document.createElement('input');
+            // const completedLabel = document.createElement('label');
             
-            completedLabel.textContent = "Complete";
-            completedLabel.style.fontWeight = "400";
-            completedLabel.style.fontSize = "small";
-            completedLabel.setAttribute('for', completedID);
+            // completedLabel.textContent = "Complete";
+            // completedLabel.style.fontWeight = "400";
+            // completedLabel.style.fontSize = "small";
+            // completedLabel.setAttribute('for', completedID);
             
-            completedBox.classList.add('completed-box');
-            completedBox.setAttribute('id', completedID);
-            completedBox.type = "checkbox";
+            // completedBox.classList.add('completed-box');
+            // completedBox.setAttribute('id', completedID);
+            // completedBox.type = "checkbox";
             
             
-            completedDiv.appendChild(completedBox);
-            completedDiv.appendChild(completedLabel);
+            // completedDiv.appendChild(completedBox);
+            // completedDiv.appendChild(completedLabel);
 
-            taskDiv.appendChild(completedDiv);
-            taskDiv.appendChild(createEditTaskButton());
+            // taskDiv.appendChild(completedDiv);
+
+            //STILL WORKING ON EDITING FUNCTIONALITY: UNCOMMENT TO RECONTINUE
+            //taskDiv.appendChild(createEditTaskButton());
 
             //taskDiv.textContent = `${task.name} ${task.description} ${task.date} ${task.priority}`;
             
@@ -272,10 +281,10 @@ const display = (function displayContent() {
 
     const editTaskOnScreen = (task) => {
 
-        let taskName = taskTitleInput.value;
-        let taskDescr = taskDescrInput.value;
-        let taskDate = taskDateInput.value;
-        let taskPriority = taskPriorityInput.value;
+        let taskName = editTitleInput.value;
+        let taskDescr = editDescrInput.value;
+        let taskDate = editDateInput.value;
+        let taskPriority = editPriorityInput.value;
 
         taskTitleInput.value = "";
         taskDescrInput.value = "";

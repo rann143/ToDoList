@@ -33,10 +33,10 @@ function ManageModals() {
         editModal.classList.remove('hidden');
         overlay.classList.remove('hidden');
 
-        editTitleInput.value = "currentValue for this task";
-        editDescrInput.value = "currentValue for this task";
-        editDateInput.value = "currentValue for this task";
-        editPriorityInput.value = "currentValue for this task";
+        editTitleInput.value = "current value for this task";
+        editDescrInput.value = "current value for this task";
+        editDateInput.value = "current value for this task";
+        editPriorityInput.value = "current value for this task";
     }
 
     const closeModal = () => {
